@@ -1,8 +1,58 @@
+# ─── Security headers for all routes ────────────────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; img-src 'self' https://images.unsplash.com data:; media-src 'self' https://assets.mixkit.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    # ── Content Security Policy ──────────────────────────────────────────────
+    # 'unsafe-inline' removed from style-src (all styles are in .css files).
+    # object-src 'none' closes the legacy plugin/Flash injection vector.
+    # upgrade-insecure-requests auto-upgrades any http:// subrequests.
+    Content-Security-Policy = """
+      default-src 'self';
+      img-src 'self' https://images.unsplash.com data:;
+      media-src 'self' https://assets.mixkit.co;
+      style-src 'self' https://fonts.googleapis.com;
+      font-src https://fonts.gstatic.com;
+      script-src 'self';
+      connect-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-ancestors 'none';
+      upgrade-insecure-requests;
+    """
+
+    # ── Transport security ───────────────────────────────────────────────────
+    # Tells browsers to always use HTTPS for this domain for 1 year.
+    # includeSubDomains covers all subdomains; preload opts into the HSTS preload list.
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # ── Framing & content-type ───────────────────────────────────────────────
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+    # ── Referrer ─────────────────────────────────────────────────────────────
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+    # ── Permissions ──────────────────────────────────────────────────────────
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+    # ── Cross-origin isolation (Spectre mitigation) ───────────────────────────
+    # COOP: prevents cross-origin windows from sharing a browsing context group.
+    # CORP: prevents other origins from no-cors embedding our resources.
+    # COEP: 'credentialless' is used (instead of require-corp) so that
+    #       third-party media (Mixkit video CDN) continues to load without
+    #       needing to set Cross-Origin-Resource-Policy on their end.
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "credentialless"
+
+# ─── Cache headers for immutable static assets ───────────────────────────────
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

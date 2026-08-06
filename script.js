@@ -2,7 +2,34 @@ const products={terra:{title:'Terra Lounge',category:'Seating collection',materi
 const modal=document.querySelector('#product-modal'),cursor=document.querySelector('.cursor'),header=document.querySelector('.site-header');
 window.addEventListener('load',()=>document.body.classList.add('loaded'));
 document.querySelectorAll('.collection-card').forEach(card=>card.addEventListener('click',()=>{const p=products[card.dataset.product];['img','title','category','description','material','space'].forEach(k=>{const node=document.querySelector(`#modal-${k}`);if(k==='img'){node.src=p.image;node.alt=p.title}else node.textContent=p[k]});modal.showModal()}));
-document.querySelector('.modal-close').addEventListener('click',()=>modal.close());document.querySelector('.modal-enquire').addEventListener('click',()=>modal.close());modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.close()});
+// ── Modal close handlers ────────────────────────────────────────────────────
+document.querySelector('.modal-close').addEventListener('click',()=>modal.close());
+document.querySelector('.modal-enquire').addEventListener('click',()=>modal.close());
+modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+
+// ── Focus trap for the product modal ───────────────────────────────────────
+// Keeps keyboard focus contained inside the dialog while it is open,
+// and returns focus to the triggering card when the dialog closes.
+let _modalTrigger=null;
+const FOCUSABLE='a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+function trapFocus(e){
+  if(!modal.open)return;
+  const nodes=[...modal.querySelectorAll(FOCUSABLE)].filter(n=>!n.closest('[hidden]'));
+  if(!nodes.length)return;
+  const first=nodes[0],last=nodes[nodes.length-1];
+  if(e.key==='Tab'){
+    if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus()}}
+    else{if(document.activeElement===last){e.preventDefault();first.focus()}}
+  }
+}
+document.querySelectorAll('.collection-card').forEach(card=>{
+  card.addEventListener('click',()=>{_modalTrigger=card});
+});
+modal.addEventListener('keydown',trapFocus);
+modal.addEventListener('close',()=>{if(_modalTrigger){_modalTrigger.focus();_modalTrigger=null}});
+// Move focus into the modal when it opens so screen readers announce it
+const _origShowModal=HTMLDialogElement.prototype.showModal;
+HTMLDialogElement.prototype.showModal=function(){_origShowModal.call(this);const btn=this.querySelector('.modal-close');if(btn)btn.focus()};
 if(matchMedia('(pointer:fine)').matches){document.addEventListener('mousemove',e=>{cursor.style.left=`${e.clientX}px`;cursor.style.top=`${e.clientY}px`});document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('is-active'));el.addEventListener('mouseleave',()=>cursor.classList.remove('is-active'))})}
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'Close':'Menu'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='Menu'}));
