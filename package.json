@@ -1,2 +1,1 @@
-{"name":"hh-concepts-homepage","version":"1.0.0","private":true,"scripts":{"start":"npx serve . -l 4173","test":"node --check script.js"},"devDependencies":{"serve":"14.2.4"}}
-
+{"name":"hh-concepts-homepage","version":"1.0.0","private":true,"scripts":{"start":"npx serve . -l 4173","test":"node --check script.js"},"devDependencies":{"pdfjs-dist":"^6.2.108","serve":"14.2.4"}}

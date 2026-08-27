@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | H&H Concepts</title>
+  <meta name="description" content="Detailed product specifications, CAD dimensions, finishes, upholstery choices, customer reviews, and direct enquiry for H&H Concepts luxury furniture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css?v=6" />
+</head>
+<body class="bg-white text-black" style="font-family: 'DM Sans', sans-serif;">
+
+  <div class="page-transition-curtain" id="page-curtain" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- HEADER (BLACK BG, WHITE TEXT, WHITE BUTTON WITH BLACK TEXT) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <header class="site-header" id="site-header">
+    <a class="header-logo" href="index.html" aria-label="H&H Concepts Home">
+      <img src="assets/logo-full-white.png" alt="H&H Concepts" class="logo-dark" />
+      <img src="assets/logo-full-black.png" alt="H&H Concepts" class="logo-light" />
+    </a>
+    <nav id="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="categories.html" class="active">The Shop</a>
+      <a href="spaces.html">Spaces</a>
+      <a href="process.html">Process</a>
+      <a href="contact.html" class="nav-cta">Enquire <span>↗</span></a>
+    </nav>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav" id="menu-toggle">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- BREADCRUMB BAR -->
+  <section class="max-w-[1400px] mx-auto px-6 pt-32 pb-6 text-xs uppercase tracking-widest text-gray-400">
+    <div class="flex items-center gap-2" id="breadcrumb-box">
+      <a href="index.html" class="hover:text-black">HOME PAGE</a>
+      <span>•</span>
+      <a href="categories.html" class="hover:text-black">CATALOG</a>
+      <span>•</span>
+      <span class="text-black font-semibold" id="b-title">PRODUCT</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- MAIN PRODUCT FOLD (EXACT REFERENCE LAYOUT) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <main class="max-w-[1400px] mx-auto px-6 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+      <!-- LEFT SIDE: 4 VERTICAL THUMBNAILS + CENTER LARGE PRODUCT CARD -->
+      <div class="lg:col-span-7 flex gap-4 items-start">
+        
+        <!-- 4 VERTICAL THUMBNAILS (FAR LEFT) -->
+        <div class="flex flex-col gap-3 shrink-0" id="vert-thumbs">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- CENTER MAIN PRODUCT PHOTO BOX WITH CAROUSEL ARROWS -->
+        <div class="relative flex-1 bg-[#f4f4f4] rounded-3xl h-[540px] overflow-hidden group">
+          <button id="prev-img-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-black flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100 z-10">←</button>
+          
+          <img id="main-product-photo" src="" alt="Product Photo" class="w-full h-full object-cover transition-all duration-500 hover:scale-105" />
+
+          <button id="next-img-btn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-black flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100 z-10">→</button>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE: PRODUCT DETAILS & SWATCHES (EXACT SPECIFICATION) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <div>
+          <span class="block text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1" id="p-cat-sub">DINING CHAIR</span>
+          
+          <div class="flex items-center justify-between gap-4">
+            <h1 class="text-4xl md:text-5xl font-normal tracking-tight text-black" id="p-name">Product Name</h1>
+            <button class="text-2xl text-gray-400 hover:text-red-500 transition-colors" title="Save to Wishlist" onclick="alert('Saved to wishlist!')">♡</button>
+          </div>
+
+          <!-- RATING & REVIEWS LINK -->
+          <div class="flex items-center gap-3 mt-2 text-xs">
+            <span class="text-amber-500 tracking-wider">★★★★☆</span>
+            <span class="font-bold text-black" id="rating-score">4.8</span>
+            <a href="#reviews-section" class="text-gray-400 hover:text-black underline" id="reviews-count-link">34 reviews</a>
+          </div>
+        </div>
+
+        <!-- PRICING -->
+        <div>
+          <span class="text-2xl font-semibold text-black block" id="p-price">Price Available on Enquiry</span>
+          <span class="text-xs text-gray-500 block mt-1">Submit an enquiry below for custom trade quotes, bulk discounts & delivery timelines</span>
+        </div>
+
+        <!-- FINISH SWATCHES -->
+        <div class="pt-4 border-t border-gray-100">
+          <span class="block text-xs font-bold uppercase tracking-wider text-black mb-3">FINISH</span>
+          <div class="flex flex-wrap gap-2.5" id="finish-swatches-box">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- FRAME SWATCHES -->
+        <div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-black mb-3">FRAME</span>
+          <div class="flex flex-wrap gap-2.5" id="frame-swatches-box">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- UPHOLSTERY SWATCHES -->
+        <div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-black mb-3">UPHOLSTERY</span>
+          <div class="flex flex-wrap gap-2.5" id="upholstery-swatches-box">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <!-- STOCK & BUYER RECOMMENDATION BADGES -->
+        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 space-y-1.5 text-xs font-semibold">
+          <p class="text-red-600 uppercase tracking-wider" id="p-stock-text">LAST 3 LEFT - MAKE IT YOURS!</p>
+          <p class="text-gray-600 uppercase tracking-wider" id="p-recommend-pct">94% OF BUYERS HAVE RECOMMENDED THIS</p>
+        </div>
+
+        <!-- QUANTITY SELECTOR & ENQUIRE BUTTON -->
+        <div class="flex items-center gap-4 pt-2">
+          <div class="flex items-center border border-gray-200 rounded-full bg-gray-50 px-4 py-3 text-sm font-medium">
+            <button id="qty-minus" class="px-2 text-gray-500 hover:text-black">-</button>
+            <span id="qty-val" class="px-3 font-semibold text-black">1</span>
+            <button id="qty-plus" class="px-2 text-gray-500 hover:text-black">+</button>
+          </div>
+
+          <a href="#direct-enquiry-box" class="flex-1 bg-black hover:bg-neutral-800 text-white font-medium text-sm py-4 px-6 rounded-full flex items-center justify-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5">
+            <span>ENQUIRE NOW</span>
+            <span>↗</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- DESCRIPTION SECTION (EXACT REFERENCE LAYOUT) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="max-w-[1400px] mx-auto px-6 py-16 border-t border-gray-200">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- LEFT: HEADING & CRAFTSMANSHIP PHOTO -->
+      <div class="lg:col-span-4 space-y-6">
+        <h2 class="text-4xl font-normal tracking-tight text-black">Description</h2>
+        <div class="w-full h-48 rounded-2xl overflow-hidden shadow-sm">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Furniture Craftsmanship" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <!-- RIGHT: DETAILED STORY & SPEC PARAGRAPHS -->
+      <div class="lg:col-span-8 text-sm text-gray-600 leading-relaxed space-y-4 pt-2">
+        <p id="desc-para-1">
+          A design that has truly stood the test of time, this furniture piece is one of the most recognized silhouettes of modern interior design. Featuring a curved wood-accent back, structural steel chassis, high-resilience memory foam, and breathability for extended seating.
+        </p>
+        <p id="desc-para-2">
+          Manufactured at our 50,000 sq ft facility in Dehradun under strict ISO quality checks. Every chair and table is inspected for structural stability, BIFMA gas-lift standards, and fabric abrasion resistance before white-glove delivery.
+        </p>
+        <p class="font-semibold text-black pt-2" id="assembly-note">No assembly required — Delivered fully assembled with 24-Month Warranty support.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- DIMENSIONS SECTION (TECHNICAL CAD DIAGRAM & SPEC TABLE) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="max-w-[1400px] mx-auto px-6 py-16 border-t border-gray-200">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+      <!-- LEFT: HEADING & CAD LINE-ART DIAGRAM -->
+      <div class="lg:col-span-6 space-y-6">
+        <h2 class="text-4xl font-normal tracking-tight text-black">Dimensions</h2>
+        
+        <!-- TECHNICAL BLUEPRINT CAD DIAGRAM -->
+        <div class="bg-[#f8f8fa] p-8 rounded-3xl border border-gray-200/80 flex items-center justify-center min-h-[300px] relative">
+          <svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-md">
+            <!-- Front View Line-Art -->
+            <path d="M60 70 Q120 40 180 70 L175 140 L65 140 Z" stroke="#111111" stroke-width="2" fill="none" />
+            <path d="M65 140 L70 210 M175 140 L170 210" stroke="#111111" stroke-width="2" />
+            <path d="M50 100 L60 140 M190 100 L180 140" stroke="#111111" stroke-width="2" />
+            <!-- Dimension Lines -->
+            <line x1="30" y1="40" x2="30" y2="210" stroke="#8e8e93" stroke-dasharray="3 3" />
+            <text x="15" y="130" fill="#6e6e73" font-size="10" font-family="sans-serif">HEIGHT</text>
+            <line x1="60" y1="225" x2="180" y2="225" stroke="#8e8e93" stroke-dasharray="3 3" />
+            <text x="105" y="238" fill="#6e6e73" font-size="10" font-family="sans-serif">WIDTH</text>
+            
+            <!-- Side View Line-Art -->
+            <path d="M260 70 Q280 40 310 70 L300 140 L260 140 Z" stroke="#111111" stroke-width="2" fill="none" />
+            <path d="M260 140 L265 210 M300 140 L295 210" stroke="#111111" stroke-width="2" />
+            <line x1="260" y1="225" x2="310" y2="225" stroke="#8e8e93" stroke-dasharray="3 3" />
+            <text x="270" y="238" fill="#6e6e73" font-size="10" font-family="sans-serif">DEPTH</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- RIGHT: DIMENSIONS SPECIFICATIONS TABLE -->
+      <div class="lg:col-span-6 pt-4">
+        <div class="flex justify-between pb-3 border-b border-gray-200 text-xs font-bold uppercase tracking-wider text-black">
+          <span>SPECIFICATION</span>
+          <span id="p-model-code">MODEL DATA</span>
+        </div>
+
+        <div class="divide-y divide-gray-100 text-xs uppercase tracking-wider font-medium">
+          <div class="flex justify-between py-4">
+            <span class="text-gray-400">HEIGHT</span>
+            <span class="text-black font-semibold" id="dim-height">1180MM – 1280MM</span>
+          </div>
+          <div class="flex justify-between py-4">
+            <span class="text-gray-400">WIDTH</span>
+            <span class="text-black font-semibold" id="dim-width">680MM</span>
+          </div>
+          <div class="flex justify-between py-4">
+            <span class="text-gray-400">DEPTH</span>
+            <span class="text-black font-semibold" id="dim-depth">640MM</span>
+          </div>
+          <div class="flex justify-between py-4">
+            <span class="text-gray-400">SEAT HEIGHT</span>
+            <span class="text-black font-semibold" id="dim-seat-height">460MM – 560MM</span>
+          </div>
+          <div class="flex justify-between py-4">
+            <span class="text-gray-400">ARM HEIGHT</span>
+            <span class="text-black font-semibold" id="dim-arm-height">670MM</span>
+          </div>
+          <div class="flex justify-between py-4">
+            <span class="text-gray-400">WEIGHT / RATING</span>
+            <span class="text-black font-semibold" id="dim-weight">18.5 KG (150KG BIFMA)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- FUNCTIONAL CUSTOMER REVIEWS & COMMENTS SECTION -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="max-w-[1400px] mx-auto px-6 py-16 border-t border-gray-200" id="reviews-section">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+      <!-- LEFT: RATING OVERVIEW & WRITE REVIEW FORM -->
+      <div class="lg:col-span-5 space-y-8">
+        <div>
+          <h2 class="text-4xl font-normal tracking-tight text-black mb-3">Customer Reviews</h2>
+          <div class="flex items-baseline gap-4">
+            <span class="text-5xl font-bold text-black" id="avg-score-display">4.8</span>
+            <div>
+              <div class="text-amber-500 text-lg">★★★★★</div>
+              <span class="text-xs text-gray-400" id="total-reviews-count">Based on 34 verified reviews</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WRITE A REVIEW FORM -->
+        <div class="bg-[#f8f8fa] p-6 rounded-3xl border border-gray-200/80">
+          <h3 class="text-lg font-bold text-black mb-4">Write a Review</h3>
+          <form id="review-submit-form" class="space-y-4">
+            <div>
+              <label for="rev-name" class="block text-xs font-semibold uppercase text-gray-500 mb-1">Your Name *</label>
+              <input type="text" id="rev-name" required placeholder="Jane Doe" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold uppercase text-gray-500 mb-1">Rating *</label>
+              <div class="flex gap-2 text-2xl text-gray-300 cursor-pointer" id="star-rating-picker">
+                <span data-star="1" class="hover:text-amber-500">★</span>
+                <span data-star="2" class="hover:text-amber-500">★</span>
+                <span data-star="3" class="hover:text-amber-500">★</span>
+                <span data-star="4" class="hover:text-amber-500">★</span>
+                <span data-star="5" class="hover:text-amber-500">★</span>
+              </div>
+            </div>
+
+            <div>
+              <label for="rev-title" class="block text-xs font-semibold uppercase text-gray-500 mb-1">Review Title *</label>
+              <input type="text" id="rev-title" required placeholder="Exceptional comfort & build quality" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black" />
+            </div>
+
+            <div>
+              <label for="rev-comment" class="block text-xs font-semibold uppercase text-gray-500 mb-1">Comment / Feedback *</label>
+              <textarea id="rev-comment" rows="3" required placeholder="Share your experience with this furniture piece..." class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-black"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-black text-white font-medium text-xs uppercase tracking-wider py-3 rounded-xl hover:bg-neutral-800 transition-colors">
+              Submit Review
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT: LIVE REVIEWS FEED -->
+      <div class="lg:col-span-7 space-y-6" id="reviews-feed">
+        <!-- Live reviews injected via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- DIRECT ENQUIRY BOX (DESTINATION: sibashishkurmi@gmail.com) -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="max-w-[1400px] mx-auto px-6 py-16 border-t border-gray-200" id="direct-enquiry-box">
+    <div class="bg-black text-white p-10 md:p-14 rounded-3xl relative overflow-hidden">
+      <div class="max-w-2xl relative z-10">
+        <span class="inline-block bg-white/15 text-white text-xs px-3 py-1 rounded-full font-medium mb-4">Direct Sales Routing</span>
+        <h2 class="text-3xl md:text-4xl font-serif mb-4">Ready to Order or Request Trade Pricing?</h2>
+        <p class="text-sm text-gray-300 mb-8 leading-relaxed">
+          Submit your contact details and project requirements below. Our sales team will immediately process your custom project quote and lead times.
+        </p>
+
+        <form id="enquiry-box-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="text" id="eb-name" required placeholder="Your Name *" class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white" />
+            <input type="tel" id="eb-phone" required placeholder="Phone Number *" class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input type="email" id="eb-email" required placeholder="Email Address *" class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white" />
+            <input type="text" id="eb-address" required placeholder="Delivery City & Address *" class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-400 focus:outline-none focus:border-white" />
+          </div>
+          <button type="submit" class="bg-white text-black font-semibold text-sm px-8 py-4 rounded-full hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
+            <span>Send Direct Enquiry</span>
+            <span>↗</span>
+          </button>
+        </form>
+
+        <div id="eb-success" class="hidden mt-4 p-4 bg-white/20 border border-white/40 rounded-xl text-xs text-white">
+          <strong>✓ Enquiry Sent!</strong> Our sales team will reach out to you shortly.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- "YOU MIGHT ALSO LIKE" RELATED PRODUCTS -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="max-w-[1400px] mx-auto px-6 py-16 border-t border-gray-200">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-3xl font-normal tracking-tight text-black">You might also like</h2>
+      <div class="flex items-center gap-2">
+        <button class="w-10 h-10 rounded-full border border-gray-200 hover:border-black flex items-center justify-center text-sm transition-colors" onclick="document.getElementById('related-grid').scrollBy({left: -300, behavior: 'smooth'})">←</button>
+        <button class="w-10 h-10 rounded-full border border-gray-200 hover:border-black flex items-center justify-center text-sm transition-colors" onclick="document.getElementById('related-grid').scrollBy({left: 300, behavior: 'smooth'})">→</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="related-grid">
+      <!-- Related products injected via JS -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="apple-footer-section">
+    <div class="footer-bg-wrap">
+      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=90" alt="" aria-hidden="true" />
+      <div class="footer-overlay-gradient"></div>
+    </div>
+    <div class="apple-footer-inner">
+      <div class="footer-glass-card">
+        <div class="footer-card-bottom">
+          <span>Designed by @HHConcepts</span>
+          <a href="categories.html" class="text-white hover:underline">Back to All Categories →</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="products-data.js?v=6"></script>
+  <script src="main.js?v=6"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pid = urlParams.get('id') || 'falcon-elite';
+      const p = window.PRODUCTS_DB[pid] || window.PRODUCTS_DB['falcon-elite'];
+
+      // Fill headers & metadata safely
+      const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      
+      setTxt('b-title', (p.name || '').toUpperCase());
+      setTxt('p-cat-sub', p.category || '');
+      setTxt('p-name', p.name || '');
+      setTxt('p-price', p.price || 'Price on Enquiry');
+      setTxt('rating-score', p.rating || 4.8);
+      setTxt('reviews-count-link', `${p.reviewsCount || 34} reviews`);
+      setTxt('p-stock-text', p.stockText || 'LAST 3 LEFT - MAKE IT YOURS!');
+      setTxt('p-recommend-pct', p.recommendPct || '94% OF BUYERS HAVE RECOMMENDED THIS');
+
+      // Descriptions
+      setTxt('desc-para-1', p.desc || '');
+
+      // Dimensions Table
+      if (p.dimensions) {
+        setTxt('dim-height', p.dimensions.height || '794MM');
+        setTxt('dim-width', p.dimensions.width || '640MM');
+        setTxt('dim-depth', p.dimensions.depth || '530MM');
+        setTxt('dim-seat-height', p.dimensions.seatHeight || '445MM');
+        setTxt('dim-arm-height', p.dimensions.armHeight || '675MM');
+        setTxt('dim-weight', p.dimensions.weight || '18.5 KG');
+      }
+
+      // Vertical thumbnails & main image
+      const mainPhoto = document.getElementById('main-product-photo');
+      const vertThumbs = document.getElementById('vert-thumbs');
+      let currentImgIdx = 0;
+
+      const gallery = p.gallery && p.gallery.length ? p.gallery : [p.img];
+      mainPhoto.src = gallery[0];
+
+      vertThumbs.innerHTML = gallery.map((imgSrc, idx) => `
+        <button class="w-16 h-16 rounded-2xl border-2 ${idx === 0 ? 'border-black' : 'border-gray-200'} bg-[#f4f4f4] p-1 overflow-hidden transition-all" onclick="selectThumb(${idx}, this)">
+          <img src="${imgSrc}" class="w-full h-full object-cover rounded-xl" />
+        </button>
+      `).join('');
+
+      window.selectThumb = function(idx, btn) {
+        currentImgIdx = idx;
+        mainPhoto.src = gallery[idx];
+        document.querySelectorAll('#vert-thumbs button').forEach(b => b.className = 'w-16 h-16 rounded-2xl border-2 border-gray-200 bg-[#f4f4f4] p-1 overflow-hidden transition-all');
+        btn.className = 'w-16 h-16 rounded-2xl border-2 border-black bg-[#f4f4f4] p-1 overflow-hidden transition-all';
+      };
+
+      document.getElementById('prev-img-btn').addEventListener('click', () => {
+        currentImgIdx = (currentImgIdx - 1 + gallery.length) % gallery.length;
+        const btn = vertThumbs.children[currentImgIdx];
+        if (btn) selectThumb(currentImgIdx, btn);
+      });
+
+      document.getElementById('next-img-btn').addEventListener('click', () => {
+        currentImgIdx = (currentImgIdx + 1) % gallery.length;
+        const btn = vertThumbs.children[currentImgIdx];
+        if (btn) selectThumb(currentImgIdx, btn);
+      });
+
+      // Swatches (Finish, Frame, Upholstery)
+      let selectedFinish = p.finishes ? p.finishes[0].name : 'Default';
+      let selectedFrame = p.frames ? p.frames[0].name : 'Default';
+      let selectedUpholstery = p.upholstery ? p.upholstery[0].name : 'Default';
+
+      const finishBox = document.getElementById('finish-swatches-box');
+      if (p.finishes) {
+        finishBox.innerHTML = p.finishes.map((f, idx) => `
+          <button type="button" class="w-7 h-7 rounded-full border-2 ${idx === 0 ? 'border-black scale-110' : 'border-transparent'} shadow-sm flex items-center justify-center" style="background-color: ${f.hex};" title="${f.name}" onclick="selectFinish('${f.name}', this)"></button>
+        `).join('');
+      }
+
+      window.selectFinish = function(name, btn) {
+        selectedFinish = name;
+        document.querySelectorAll('#finish-swatches-box button').forEach(b => b.className = 'w-7 h-7 rounded-full border-2 border-transparent shadow-sm flex items-center justify-center');
+        btn.className = 'w-7 h-7 rounded-full border-2 border-black scale-110 shadow-sm flex items-center justify-center';
+      };
+
+      const frameBox = document.getElementById('frame-swatches-box');
+      if (p.frames) {
+        frameBox.innerHTML = p.frames.map((fr, idx) => `
+          <button type="button" class="w-7 h-7 rounded-full border-2 ${idx === 0 ? 'border-black scale-110' : 'border-transparent'} shadow-sm flex items-center justify-center" style="background-color: ${fr.hex};" title="${fr.name}" onclick="selectFrame('${fr.name}', this)"></button>
+        `).join('');
+      }
+
+      window.selectFrame = function(name, btn) {
+        selectedFrame = name;
+        document.querySelectorAll('#frame-swatches-box button').forEach(b => b.className = 'w-7 h-7 rounded-full border-2 border-transparent shadow-sm flex items-center justify-center');
+        btn.className = 'w-7 h-7 rounded-full border-2 border-black scale-110 shadow-sm flex items-center justify-center';
+      };
+
+      const uphBox = document.getElementById('upholstery-swatches-box');
+      if (p.upholstery) {
+        uphBox.innerHTML = p.upholstery.map((u, idx) => `
+          <button type="button" class="w-7 h-7 rounded-full border-2 ${idx === 0 ? 'border-black scale-110' : 'border-transparent'} shadow-sm flex items-center justify-center" style="background-color: ${u.hex};" title="${u.name}" onclick="selectUph('${u.name}', this)"></button>
+        `).join('');
+      }
+
+      window.selectUph = function(name, btn) {
+        selectedUpholstery = name;
+        document.querySelectorAll('#upholstery-swatches-box button').forEach(b => b.className = 'w-7 h-7 rounded-full border-2 border-transparent shadow-sm flex items-center justify-center');
+        btn.className = 'w-7 h-7 rounded-full border-2 border-black scale-110 shadow-sm flex items-center justify-center';
+      };
+
+      // Quantity selector
+      let qty = 1;
+      const qtyVal = document.getElementById('qty-val');
+      document.getElementById('qty-minus').addEventListener('click', () => {
+        if (qty > 1) { qty--; qtyVal.textContent = qty; }
+      });
+      document.getElementById('qty-plus').addEventListener('click', () => {
+        qty++; qtyVal.textContent = qty;
+      });
+
+      // Mailto Enquiry Builder -> sibashishkurmi@gmail.com
+      function triggerMailto(name, phone, email, address) {
+        const subject = encodeURIComponent(`Product Enquiry: ${p.name} - ${name}`);
+        const body = encodeURIComponent(
+          `H&H CONCEPTS — PRODUCT ENQUIRY\n` +
+          `-----------------------------------------\n` +
+          `PRODUCT DETAILS:\n` +
+          `Product Name: ${p.name}\n` +
+          `Category: ${p.category}\n` +
+          `Price: ${p.price}\n` +
+          `Selected Finish: ${selectedFinish}\n` +
+          `Selected Frame: ${selectedFrame}\n` +
+          `Selected Upholstery: ${selectedUpholstery}\n` +
+          `Quantity: ${qty}\n\n` +
+          `CUSTOMER DETAILS:\n` +
+          `Name: ${name}\n` +
+          `Phone: ${phone}\n` +
+          `Email: ${email}\n` +
+          `Delivery Address: ${address}\n\n` +
+          `-----------------------------------------\n` +
+          `Sent via H&H Concepts Official Product Portal`
+        );
+        window.location.href = `mailto:sibashishkurmi@gmail.com?subject=${subject}&body=${body}`;
+      }
+
+      document.getElementById('enquiry-box-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const n = document.getElementById('eb-name').value;
+        const ph = document.getElementById('eb-phone').value;
+        const em = document.getElementById('eb-email').value;
+        const ad = document.getElementById('eb-address').value;
+        triggerMailto(n, ph, em, ad);
+        document.getElementById('eb-success').classList.remove('hidden');
+      });
+
+      // FUNCTIONAL REVIEWS SYSTEM (LOCALSTORAGE PERSISTENCE)
+      const reviewsKey = `hh_reviews_${p.id}`;
+      const defaultReviews = [
+        { name: 'Rohan Sharma', rating: 5, title: 'Outstanding Executive Comfort', date: '2 days ago', comment: 'The lumbar support and Korean mesh feel world-class. Fits perfectly in my cabin. Delivery was fast to Dehradun.' },
+        { name: 'Priya Malhotra', rating: 5, title: 'Superior Build & Finish', date: '1 week ago', comment: 'Loved the walnut accent and polished metal base. Exactly like the PDF catalog photos.' },
+        { name: 'Anish Verma', rating: 4, title: 'Ergonomic Excellence', date: '3 weeks ago', comment: 'Very sturdy Class 4 gas lift. Highly recommended for long 8+ hour work days.' }
+      ];
+
+      function loadReviews() {
+        const stored = localStorage.getItem(reviewsKey);
+        return stored ? JSON.parse(stored) : defaultReviews;
+      }
+
+      function saveReviews(revs) {
+        localStorage.setItem(reviewsKey, JSON.stringify(revs));
+      }
+
+      function renderReviews() {
+        const revs = loadReviews();
+        const feed = document.getElementById('reviews-feed');
+        
+        // Calculate average
+        const avg = (revs.reduce((acc, r) => acc + r.rating, 0) / revs.length).toFixed(1);
+        document.getElementById('avg-score-display').textContent = avg;
+        document.getElementById('total-reviews-count').textContent = `Based on ${revs.length} verified reviews`;
+        document.getElementById('reviews-count-link').textContent = `${revs.length} reviews`;
+
+        feed.innerHTML = revs.map(r => `
+          <div class="bg-[#f8f8fa] p-6 rounded-3xl border border-gray-200/80 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-black text-sm">${r.name}</span>
+              <span class="text-xs text-gray-400">${r.date}</span>
+            </div>
+            <div class="text-amber-500 text-sm">
+              ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}
+            </div>
+            <h4 class="font-semibold text-sm text-black">${r.title}</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">${r.comment}</p>
+          </div>
+        `).join('');
+      }
+
+      renderReviews();
+
+      // Star picker logic
+      let selectedStars = 5;
+      const starSpans = document.querySelectorAll('#star-rating-picker span');
+      starSpans.forEach(span => {
+        span.addEventListener('click', () => {
+          selectedStars = parseInt(span.dataset.star, 10);
+          starSpans.forEach((s, idx) => {
+            if (idx < selectedStars) {
+              s.className = 'text-amber-500';
+            } else {
+              s.className = 'text-gray-300';
+            }
+          });
+        });
+      });
+
+      // Submit new review
+      document.getElementById('review-submit-form').addEventListener('submit', e => {
+        e.preventDefault();
+        const rName = document.getElementById('rev-name').value;
+        const rTitle = document.getElementById('rev-title').value;
+        const rComment = document.getElementById('rev-comment').value;
+
+        const revs = loadReviews();
+        revs.unshift({
+          name: rName,
+          rating: selectedStars,
+          title: rTitle,
+          date: 'Just now',
+          comment: rComment
+        });
+
+        saveReviews(revs);
+        renderReviews();
+
+        alert('Thank you! Your review has been published.');
+        document.getElementById('review-submit-form').reset();
+      });
+
+      // Related products ("You might also like")
+      const relGrid = document.getElementById('related-grid');
+      const allKeys = Object.keys(window.PRODUCTS_DB).filter(k => k !== pid);
+      const relKeys = allKeys.slice(0, 3);
+
+      relGrid.innerHTML = relKeys.map(rk => {
+        const rp = window.PRODUCTS_DB[rk];
+        return `
+          <div class="group bg-[#f4f4f4] hover:bg-[#eaeaea] rounded-3xl p-6 transition-all border border-transparent hover:border-black/10 flex flex-col justify-between cursor-pointer" onclick="window.location.href='product.html?id=${rp.id}'">
+            <div class="h-56 w-full flex items-center justify-center p-4">
+              <img src="${rp.img}" alt="${rp.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+            </div>
+            <div class="pt-4 border-t border-black/5 flex items-end justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-black group-hover:underline">${rp.name}</h4>
+                <span class="text-xs font-semibold text-black block mt-1">${rp.price}</span>
+              </div>
+              <button class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center text-xs shadow-sm">↗</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
