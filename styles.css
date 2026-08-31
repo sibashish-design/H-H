@@ -1127,34 +1127,169 @@ dialog#cat-modal::backdrop {
   }
 
   /* ═══════════════════════════════════════════════════
-     SHOP PAGE MOBILE FIXES (CATEGORIES.HTML)
+     SHOP PAGE & FILTER SIDEBAR MOBILE FIXES
   ═══════════════════════════════════════════════════ */
   #filter-sidebar {
     width: 100% !important;
     max-width: 100% !important;
   }
-
   #filter-sidebar.w-0 {
     display: none !important;
   }
 
-  .collection-grid { grid-template-columns: 1fr; }
-  .col-card.col-wide { grid-column: span 1; }
-  .categories-grid { grid-template-columns: 1fr; }
-  .spotlight-grid { grid-template-columns: 1fr; }
-  .spaces-grid-desktop .space-card { flex: 0 0 85vw; }
+  /* ═══════════════════════════════════════════════════
+     MOBILE TYPOGRAPHY SCALING (SMALLER, ELEGANT HEADINGS)
+  ═══════════════════════════════════════════════════ */
+  .hero h1 { font-size: clamp(28px, 8vw, 44px) !important; line-height: 1.12 !important; }
+  .subpage-hero h1 { font-size: clamp(26px, 7.5vw, 36px) !important; line-height: 1.15 !important; }
+  .subpage-hero-sub { font-size: 13.5px !important; line-height: 1.5 !important; }
+  .section-top h2, h2 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.2 !important; }
+  h3 { font-size: clamp(16px, 4.5vw, 20px) !important; }
+  h4 { font-size: 15px !important; }
+  p, .sub-lead { font-size: 13.5px !important; line-height: 1.6 !important; }
+  .eyebrow { font-size: 10.5px !important; letter-spacing: 0.12em !important; }
+
+  /* ═══════════════════════════════════════════════════
+     2-COLUMN CARD GRIDS FOR MOBILE VIEWPORTS
+  ═══════════════════════════════════════════════════ */
+  .collection-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .spotlight-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  #shop-product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .timeline-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .col-card.col-wide { grid-column: span 2 !important; }
+
+  /* Compact card styling for 2 columns */
+  .cat-card, .col-card, .spotlight-card, .product-card, .timeline-card {
+    padding: 12px !important;
+    border-radius: 16px !important;
+  }
+  .cat-card h3, .col-card h3, .spotlight-card h3, .timeline-card h4 {
+    font-size: 14px !important;
+    margin-bottom: 2px !important;
+  }
+  .cat-card p, .col-card p, .spotlight-card p, .timeline-card p {
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     TOUCH-FRIENDLY HORIZONTAL CAROUSEL FOR PRODUCTS
+  ═══════════════════════════════════════════════════ */
+  .mobile-carousel {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 12px !important;
+    padding-bottom: 14px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    scrollbar-width: none;
+  }
+  .mobile-carousel::-webkit-scrollbar { display: none; }
+  .mobile-carousel > * {
+    flex: 0 0 68vw !important;
+    max-width: 270px !important;
+    scroll-snap-align: start !important;
+  }
+
   .process-steps { grid-template-columns: 1fr; }
   .step { border-right: 0; border-bottom: 1px solid var(--line); }
   .form-row { grid-template-columns: 1fr; }
   .modal-body { grid-template-columns: 1fr; }
-  .modal-img-wrap { min-height: 260px; }
-  .hero-badge { top: 12vh; right: 5vw; width: 80px; height: 80px; }
-  .hero h1 { font-size: clamp(44px, 11vw, 72px); }
-  .timeline-grid { grid-template-columns: 1fr; }
-  .footer-card-grid { grid-template-columns: 1fr; }
-  .footer-subscribe-pill { flex-direction: column; border-radius: var(--r-lg); padding: 12px; gap: 12px; }
-  .footer-subscribe-pill input { width: 100%; text-align: center; }
-  .footer-subscribe-pill button { width: 100%; }
+  .modal-img-wrap { min-height: 240px; }
+  .hero-badge { top: 10vh; right: 4vw; width: 70px; height: 70px; }
+
+  /* ═══════════════════════════════════════════════════
+     LEFT-ALIGNED MOBILE FOOTER & ADJUSTMENTS
+  ═══════════════════════════════════════════════════ */
+  .apple-footer-section { text-align: left !important; }
+  .apple-footer-inner { text-align: left !important; }
+  
+  .footer-subscribe-hero {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+  .footer-subscribe-hero h2 {
+    text-align: left !important;
+    font-size: clamp(22px, 6vw, 28px) !important;
+    margin-bottom: 12px !important;
+  }
+  .footer-subscribe-pill {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 12px !important;
+    gap: 10px !important;
+    border-radius: 16px !important;
+    width: 100% !important;
+  }
+  .footer-subscribe-pill input {
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 13px !important;
+    padding: 12px 14px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+  }
+  .footer-subscribe-pill button {
+    width: 100% !important;
+    border-radius: 9999px !important;
+    font-size: 12px !important;
+    padding: 12px 16px !important;
+  }
+
+  .footer-glass-card { padding: 24px 20px !important; border-radius: 20px !important; }
+  
+  .footer-card-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px 16px !important;
+    text-align: left !important;
+  }
+  .footer-brand-col {
+    grid-column: span 2 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .footer-card-logo {
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+    height: 64px !important;
+  }
+  .footer-card-bio {
+    text-align: left !important;
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+    max-width: 100% !important;
+  }
+  .footer-col {
+    text-align: left !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .footer-col-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+  }
+  .footer-col a {
+    font-size: 12.5px !important;
+  }
+  .footer-card-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 14px !important;
+    padding-top: 24px !important;
+    font-size: 12px !important;
+  }
+  .footer-social-links {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    gap: 10px !important;
+  }
 }
 
 @media (min-width: 768px) {
