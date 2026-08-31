@@ -120,10 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (header) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
+      if (window.scrollY > 40) {
         header.classList.add('scrolled');
       } else {
-        if (!document.querySelector('.subpage-hero')) {
+        if (!header.classList.contains('header-light') && !document.body.classList.contains('page-light')) {
           header.classList.remove('scrolled');
         }
       }
@@ -135,15 +135,38 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = nav.classList.toggle('open');
       menuToggle.classList.toggle('open', open);
       menuToggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
     nav.addEventListener('click', e => {
       if (e.target.tagName === 'A') {
         nav.classList.remove('open');
         menuToggle.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       }
     });
   }
+
+  /* ── INJECT FLOATING BOTTOM PILL DOCK (REFERENCE UI) ── */
+  (function createMobileBottomDock() {
+    if (document.getElementById('mobile-bottom-dock')) return;
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const isHome = path === '' || path === 'index.html';
+    const isShop = path.includes('categories.html') || path.includes('product');
+    const isSpaces = path.includes('spaces.html');
+    const isAbout = path.includes('about.html');
+
+    const dock = document.createElement('div');
+    dock.className = 'mobile-bottom-dock';
+    dock.id = 'mobile-bottom-dock';
+    dock.innerHTML = `
+      <a href="index.html" class="${isHome ? 'active' : ''}"><span>🏠</span> Home</a>
+      <a href="categories.html" class="${isShop ? 'active' : ''}"><span>🛍️</span> Shop</a>
+      <a href="spaces.html" class="${isSpaces ? 'active' : ''}"><span>✨</span> Spaces</a>
+      <a href="contact.html" class="dock-cta">Enquire ↗</a>
+    `;
+    document.body.appendChild(dock);
+  })();
 
   /* ── REVEAL ON SCROLL ─────── */
   const revealEls = document.querySelectorAll('.reveal');
