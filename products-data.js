@@ -1,210 +1,81 @@
 /* ═══════════════════════════════════════════════════
    H&H CONCEPTS — PRODUCT DATABASE
-   Curated High-Resolution Furniture Photography
+   14 Curated Luxury Furniture Pieces with Real Photography
 ═══════════════════════════════════════════════════ */
 
 const PRODUCTS_DB = {
-  'falcon-elite': {
-    id: 'falcon-elite',
-    name: 'Falcon Elite Executive Chair',
-    category: 'EXECUTIVE SEATING',
-    categorySlug: 'executive',
-    pdfSource: 'EXECUTIVE SERIES PRICELIST.pdf',
-    price: 'Price on Enquiry',
-    originalPrice: '',
-    priceRaw: 0,
-    warranty: '24 Months Warranty',
-    rating: 4.8,
-    reviewsCount: 34,
-    stockText: 'LAST 3 LEFT - MAKE IT YOURS!',
-    recommendPct: '94% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80'
-    ],
-    desc: 'Originally created for executive boardrooms, the Falcon Elite Chair is one of the most recognized director chairs. Featuring a curved wood-accent back, imported Korean air-mesh, 4-position synchronized tilt mechanism, and a 700mm mirror-polished aluminium die-cast base. No assembly required — white-glove installation included.',
-    dimensions: {
-      height: '1180MM – 1280MM',
-      width: '680MM',
-      depth: '640MM',
-      seatHeight: '460MM – 560MM',
-      armHeight: '670MM',
-      weight: '18.5 KG (150KG BIFMA Rated)'
-    },
-    specs: {
-      'Back Rest': 'High-density breathable Korean Air-Mesh',
-      'Seat Cushion': 'Moulded PU foam with waterfall edge design',
-      'Mechanism': 'Multi-lock synchro tilt with tension adjustment',
-      'Armrest': '3D Soft PU armrests (Height, Angle & Depth adjustable)',
-      'Gas Lift': 'BIFMA-certified Class 4 pneumatic gas cylinder',
-      'Base': '700mm Aluminium die-cast 5-star base',
-      'Casters': '60mm noise-free nylon casters'
-    },
-    finishes: [
-      { name: 'Walnut Wood Accent', hex: '#4a2e1b' },
-      { name: 'Natural Oak', hex: '#b8956e' }
-    ],
-    frames: [
-      { name: 'Polished Aluminium', hex: '#d1d1d6' },
-      { name: 'Matte Black Steel', hex: '#111111' }
-    ],
-    upholstery: [
-      { name: 'Jet Black Mesh', hex: '#111111' },
-      { name: 'Slate Grey Fabric', hex: '#55555e' },
-      { name: 'Tan Italian Leather', hex: '#8a4b28' }
-    ],
-    sizes: ['High Back w/ Headrest', 'Medium Back Executive', 'Visitor Swivel']
-  },
-  'freedom': {
-    id: 'freedom',
-    name: 'Freedom Ergonomic Chair',
-    category: 'ERGO OFFICE CHAIRS',
-    categorySlug: 'ergo',
-    pdfSource: 'FBI Ergo Series .pdf',
-    price: 'Price on Enquiry',
-    originalPrice: '',
-    priceRaw: 0,
-    warranty: '24 Months Warranty',
-    rating: 4.9,
-    reviewsCount: 48,
-    stockText: 'IN STOCK - READY TO SHIP',
-    recommendPct: '98% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=1200&q=80'
-    ],
-    desc: 'FBI Ergo Series Freedom chair adapts automatically to the user weight and body posture. Features self-adjusting lumbar support, height-adjustable headrest, and heavy-duty glass-filled nylon frame.',
-    dimensions: {
-      height: '1120MM – 1220MM',
-      width: '650MM',
-      depth: '620MM',
-      seatHeight: '440MM – 540MM',
-      armHeight: '650MM',
-      weight: '16.2 KG'
-    },
-    specs: {
-      'Frame': 'Glass-filled nylon structural frame',
-      'Lumbar Support': 'Height & depth adjustable lumbar pad',
-      'Mechanism': 'Auto-weight sensing synchro mechanism',
-      'Gas Lift': 'Class 4 gas lift cylinder',
-      'Warranty': '24 Months On-site Warranty'
-    },
-    finishes: [
-      { name: 'Matte Black', hex: '#111111' },
-      { name: 'Arctic White', hex: '#f0f0f0' }
-    ],
-    frames: [
-      { name: 'Graphite Nylon', hex: '#222222' }
-    ],
-    upholstery: [
-      { name: 'Onyx Black', hex: '#111111' },
-      { name: 'Cool Grey Mesh', hex: '#8e8e93' }
-    ],
-    sizes: ['High Back with Headrest', 'Mid Back Task']
-  },
-  'galaxy-mesh': {
-    id: 'galaxy-mesh',
-    name: 'Galaxy Mesh High Back',
-    category: 'EXECUTIVE SEATING',
-    categorySlug: 'executive',
-    pdfSource: 'EXECUTIVE SERIES PRICELIST.pdf',
-    price: 'Price on Enquiry',
-    originalPrice: '',
-    priceRaw: 0,
-    warranty: '24 Months Warranty',
-    rating: 4.7,
-    reviewsCount: 29,
-    stockText: 'IN STOCK - READY TO DELIVER',
-    recommendPct: '93% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=1200&q=80'
-    ],
-    desc: 'Streamlined executive mesh chair with integrated lumbar curve, polished metal accents, and premium dual-wheel nylon casters.',
-    dimensions: {
-      height: '1150MM – 1250MM',
-      width: '660MM',
-      depth: '630MM',
-      seatHeight: '450MM – 550MM',
-      armHeight: '660MM',
-      weight: '17.0 KG'
-    },
-    specs: {
-      'Back': 'Heavy-duty polyester mesh',
-      'Base': '700mm Chrome finish steel base',
-      'Gas Lift': 'Class 4 BIFMA approved'
-    },
-    finishes: [{ name: 'Chrome Finish', hex: '#cccccc' }],
-    frames: [{ name: 'Polished Metal', hex: '#e5e5ea' }],
-    upholstery: [
-      { name: 'Onyx Black', hex: '#111111' },
-      { name: 'Titanium Grey', hex: '#4a4a52' }
-    ],
-    sizes: ['High Back', 'Mid Back']
-  },
-  'nova-ergo': {
-    id: 'nova-ergo',
-    name: 'Nova Ergonomic Task Chair',
-    category: 'WORKSTATION CHAIRS',
-    categorySlug: 'ergo',
-    pdfSource: 'FBI Ergo Series .pdf',
-    price: 'Price on Enquiry',
-    originalPrice: '',
-    priceRaw: 0,
-    warranty: '24 Months Warranty',
-    rating: 4.6,
-    reviewsCount: 31,
-    stockText: 'POPULAR TASK SEATING',
-    recommendPct: '91% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80'
-    ],
-    desc: 'Engineered for high-density corporate workstations. The Nova task chair offers intuitive height and tilt controls with responsive lumbar cushioning.',
-    dimensions: {
-      height: '1050MM – 1150MM',
-      width: '620MM',
-      depth: '600MM',
-      seatHeight: '430MM – 530MM',
-      armHeight: '640MM',
-      weight: '14.5 KG'
-    },
-    specs: {
-      'Mesh': 'Breathable elastic mesh',
-      'Cushion': 'High resilience cold-cured foam',
-      'Base': 'Nylon 5-star base'
-    },
-    finishes: [{ name: 'Black Nylon', hex: '#111111' }],
-    frames: [{ name: 'Nylon Chassis', hex: '#222222' }],
-    upholstery: [
-      { name: 'Black', hex: '#111111' },
-      { name: 'Navy Blue', hex: '#1b2a47' }
-    ],
-    sizes: ['Standard Task', 'High Back']
-  },
-  'lumino-bed-suite': {
-    id: 'lumino-bed-suite',
-    name: 'Lumino Bed Suite (FMH-S-03)',
-    category: 'HOTEL ROOM FURNITURE',
-    categorySlug: 'hotel',
-    pdfSource: 'HOTEL ROOM - 2nd SERIES.pdf',
+
+  /* ─────────────── BEDS ─────────────── */
+
+  'aura-float-bed': {
+    id: 'aura-float-bed',
+    name: 'Aura Float Bed',
+    category: 'LUXURY BEDS',
+    categorySlug: 'beds',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
     warranty: '36 Months Warranty',
-    rating: 4.7,
-    reviewsCount: 19,
-    stockText: 'LIMITED EDITION - MADE TO ORDER',
-    recommendPct: '92% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80',
+    rating: 4.9,
+    reviewsCount: 26,
+    stockText: 'BOUTIQUE HOTEL COLLECTION',
+    recommendPct: '97% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/aura-float-bed/aura-float-bed-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/aura-float-bed/aura-float-bed-1.png',
+      'assets/products/aura-float-bed/aura-float-bed-2.png',
+      'assets/products/aura-float-bed/aura-float-bed-3.png',
+      'assets/products/aura-float-bed/aura-float-bed-4.png'
     ],
-    desc: 'Boutique hotel bed suite featuring an integrated LED illuminated headboard, dual floating nightstands, and concealed cable management channels. Built from commercial-grade MR laminate and solid hardwood.',
+    desc: 'The Aura Float Bed redefines luxury bedroom design with its cantilevered floating frame and ambient under-bed illumination. Crafted from premium hardwood with a reinforced steel inner chassis, it creates a mesmerising visual effect where the bed appears to hover above the floor. The integrated LED perimeter lighting adds a warm, ethereal glow perfect for boutique hotels and luxury residences.',
+    dimensions: {
+      height: '1300MM (Headboard)',
+      width: '1950MM',
+      depth: '2050MM',
+      seatHeight: '460MM (Platform)',
+      armHeight: 'N/A',
+      weight: '110 KG (Hardwood & Steel)'
+    },
+    specs: {
+      'Finish': 'Natural Teak / Smoked Oak Veneer',
+      'Lighting': 'Integrated 3000K warm ambient LED strip',
+      'Frame': 'Reinforced steel inner chassis with floating cantilever',
+      'Mattress Area': 'King Size (78" x 72")',
+      'Installation': 'White-glove delivery & professional installation included'
+    },
+    finishes: [
+      { name: 'Smoked Oak', hex: '#2b2622' },
+      { name: 'Natural Teak', hex: '#634730' }
+    ],
+    frames: [{ name: 'Steel Inner Chassis', hex: '#111111' }],
+    upholstery: [
+      { name: 'Warm Linen', hex: '#e3dfd5' },
+      { name: 'Charcoal Grey', hex: '#3a3a3c' }
+    ],
+    sizes: ['King Size (78" x 72")', 'Queen Size (78" x 60")']
+  },
+
+  'lumino-bed-suite': {
+    id: 'lumino-bed-suite',
+    name: 'Lumino Bed Suite',
+    category: 'LUXURY BEDS',
+    categorySlug: 'beds',
+    price: 'Price on Enquiry',
+    originalPrice: '',
+    priceRaw: 0,
+    warranty: '36 Months Warranty',
+    rating: 4.8,
+    reviewsCount: 22,
+    stockText: 'LIMITED EDITION — MADE TO ORDER',
+    recommendPct: '95% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/lumino-bed-suite/lumino-bed-suite-1.png',
+    gallery: [
+      'assets/products/lumino-bed-suite/lumino-bed-suite-1.png',
+      'assets/products/lumino-bed-suite/lumino-bed-suite-2.png',
+      'assets/products/lumino-bed-suite/lumino-bed-suite-3.png',
+      'assets/products/lumino-bed-suite/lumino-bed-suite-4.png'
+    ],
+    desc: 'The Lumino Bed Suite is our flagship boutique hotel offering featuring an LED-illuminated upholstered headboard, dual floating nightstands with soft-close drawers, and concealed cable management channels. Built from commercial-grade moisture-resistant laminate and solid hardwood for 5-star hospitality environments.',
     dimensions: {
       height: '1400MM (Headboard)',
       width: '2100MM (w/ Nightstands)',
@@ -217,7 +88,8 @@ const PRODUCTS_DB = {
       'Headboard': 'Upholstered leatherette with warm LED perimeter strip',
       'Structure': 'High-moisture resistant commercial ply with veneer finish',
       'Nightstands': 'Dual drawer floating side tables included',
-      'Dimensions': 'King Size (78" × 72" mattress area)'
+      'Dimensions': 'King Size (78" x 72" mattress area)',
+      'Installation': 'White-glove delivery & professional assembly'
     },
     finishes: [
       { name: 'Smoked Walnut', hex: '#3d2b1f' },
@@ -228,275 +100,399 @@ const PRODUCTS_DB = {
       { name: 'Warm Beige Leatherette', hex: '#d9cdb8' },
       { name: 'Charcoal Grey', hex: '#3a3a3c' }
     ],
-    sizes: ['King Suite (78" × 72")', 'Queen Suite (78" × 60")']
+    sizes: ['King Suite (78" x 72")', 'Queen Suite (78" x 60")']
   },
-  'aura-float-bed': {
-    id: 'aura-float-bed',
-    name: 'Aura Float Bed (FMH-B-01)',
-    category: 'HOTEL ROOM FURNITURE',
-    categorySlug: 'hotel',
-    pdfSource: 'HOTEL ROOM - 2nd SERIES.pdf',
-    price: 'Price on Enquiry',
-    originalPrice: '',
-    priceRaw: 0,
-    warranty: '36 Months Warranty',
-    rating: 4.8,
-    reviewsCount: 22,
-    stockText: 'BOUTIQUE HOTEL COLLECTION',
-    recommendPct: '95% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'
-    ],
-    desc: 'Minimalist floating bed frame with under-bed mood illumination and wall-mounted headboard panels for luxury hotel rooms.',
-    dimensions: {
-      height: '1300MM',
-      width: '1950MM',
-      depth: '2050MM',
-      seatHeight: '460MM',
-      armHeight: 'N/A',
-      weight: '110 KG'
-    },
-    specs: {
-      'Finish': 'Natural Teak / Smoked Oak Veneer',
-      'Lighting': 'Integrated 3000K warm ambient LED lighting',
-      'Frame': 'Reinforced steel inner chassis'
-    },
-    finishes: [
-      { name: 'Smoked Oak', hex: '#2b2622' },
-      { name: 'Natural Teak', hex: '#634730' }
-    ],
-    frames: [{ name: 'Steel Frame', hex: '#111111' }],
-    upholstery: [{ name: 'Warm Linen', hex: '#e3dfd5' }],
-    sizes: ['King Size', 'Queen Size']
-  },
-  'canvas-sofa': {
-    id: 'canvas-sofa',
-    name: 'Canvas 3-Seater Luxury Sofa',
-    category: 'SOFA SERIES',
-    categorySlug: 'sofa',
-    pdfSource: 'SOFA SERIES PRICELIST .pdf',
-    price: 'Price on Enquiry',
-    originalPrice: '',
-    priceRaw: 0,
-    warranty: '24 Months Warranty',
-    rating: 4.8,
-    reviewsCount: 27,
-    stockText: 'BEST SELLER - IN STOCK',
-    recommendPct: '96% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1200&q=80'
-    ],
-    desc: 'Architectural 3-seater sofa with deep seating cushions, solid mahogany wooden legs, and stain-resistant velvet fabric. Perfect for executive reception areas and upscale living rooms.',
-    dimensions: {
-      height: '820MM',
-      width: '2130MM (84")',
-      depth: '880MM',
-      seatHeight: '440MM',
-      armHeight: '620MM',
-      weight: '58 KG'
-    },
-    specs: {
-      'Upholstery': 'High-grade velvet / textured weave fabric',
-      'Frame': 'Seasoned hardwood frame with zig-zag spring support',
-      'Cushioning': '32 density super soft foam + feather blend overlay',
-      'Legs': 'Solid Mahogany wood with brass tip caps'
-    },
-    finishes: [{ name: 'Mahogany & Brass', hex: '#3d261a' }],
-    frames: [{ name: 'Hardwood Chassis', hex: '#222222' }],
-    upholstery: [
-      { name: 'Emerald Green Velvet', hex: '#1b3b2b' },
-      { name: 'Charcoal Grey', hex: '#2d2d32' },
-      { name: 'Ivory Beige', hex: '#e3dfd5' }
-    ],
-    sizes: ['3-Seater (84" W)', '2-Seater (62" W)', '1-Seater Armchair (38" W)']
-  },
-  'vegas-sofa': {
-    id: 'vegas-sofa',
-    name: 'Vegas Leatherette Sofa',
-    category: 'SOFA SERIES',
-    categorySlug: 'sofa',
-    pdfSource: 'SOFA SERIES PRICELIST .pdf',
+
+  /* ─────────────── TABLES ─────────────── */
+
+  'kora-round-table': {
+    id: 'kora-round-table',
+    name: 'Kora Round Table',
+    category: 'ROUND TABLES',
+    categorySlug: 'tables',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
     warranty: '24 Months Warranty',
     rating: 4.7,
-    reviewsCount: 24,
-    stockText: 'EXECUTIVE LOUNGE SERIES',
-    recommendPct: '94% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1200&q=80',
+    reviewsCount: 18,
+    stockText: 'ARTISAN COLLECTION',
+    recommendPct: '93% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/kora-round-table/kora-round-table-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/kora-round-table/kora-round-table-1.png',
+      'assets/products/kora-round-table/kora-round-table-2.png'
     ],
-    desc: 'Sleek Italian leatherette sofa with polished stainless steel base legs and tufted back cushioning for executive offices.',
+    desc: 'The Kora Round Table is a statement piece that blends sculptural elegance with functional design. Its organic round form and carefully proportioned base create a harmonious centrepiece for dining rooms, meeting rooms, or hotel lobbies.',
     dimensions: {
-      height: '840MM',
-      width: '2050MM',
-      depth: '860MM',
-      seatHeight: '450MM',
-      armHeight: '630MM',
-      weight: '54 KG'
+      height: '760MM',
+      width: '1200MM (Diameter)',
+      depth: '1200MM',
+      seatHeight: 'N/A',
+      armHeight: 'N/A',
+      weight: '42 KG'
     },
     specs: {
-      'Upholstery': 'Premium breathable Italian leatherette',
-      'Legs': '304 Grade Stainless Steel matte black finish'
+      'Top': 'Solid hardwood with hand-finished veneer',
+      'Base': 'Sculptural pedestal base',
+      'Seating Capacity': '4-6 persons',
+      'Assembly': 'Minimal assembly required'
     },
-    finishes: [{ name: 'Stainless Steel Matte Black', hex: '#111111' }],
-    frames: [{ name: 'Steel Frame', hex: '#222222' }],
-    upholstery: [
-      { name: 'Espresso Brown', hex: '#2e1c14' },
-      { name: 'Jet Black', hex: '#111111' }
+    finishes: [
+      { name: 'Natural Walnut', hex: '#5c3a1e' },
+      { name: 'Smoked Oak', hex: '#2b2622' }
     ],
-    sizes: ['3-Seater Set', '2-Seater', '1-Seater']
+    frames: [{ name: 'Hardwood Pedestal', hex: '#4a2e1b' }],
+    upholstery: [],
+    sizes: ['1200mm Diameter', '1500mm Diameter']
   },
-  'marbelo-recliner': {
-    id: 'marbelo-recliner',
-    name: 'Marbelo Double Motor Recliner',
-    category: 'RECLINER SERIES',
-    categorySlug: 'recliner',
-    pdfSource: 'RECLINER SERIES PRICE LIST.pdf',
+
+  'the-aris-round-table': {
+    id: 'the-aris-round-table',
+    name: 'The Aris Round Table',
+    category: 'ROUND TABLES',
+    categorySlug: 'tables',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
-    warranty: '36 Months Warranty',
-    rating: 4.9,
-    reviewsCount: 42,
-    stockText: 'FLAGSHIP MODEL - DUAL GERMAN MOTORS',
-    recommendPct: '99% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1200&q=80',
+    warranty: '24 Months Warranty',
+    rating: 4.8,
+    reviewsCount: 15,
+    stockText: 'DESIGNER COLLECTION',
+    recommendPct: '96% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-aris-round-table/the-aris-round-table-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-aris-round-table/the-aris-round-table-1.png',
+      'assets/products/the-aris-round-table/the-aris-round-table-2.png',
+      'assets/products/the-aris-round-table/the-aris-round-table-3.png'
     ],
-    desc: 'The ultimate luxury recliner. Features independent dual German Okin motors for backrest and footrest adjustment, built-in 8-point vibration massager, soothing lumbar heating pad, and wireless remote controller. Upholstered in top-grain European leather.',
+    desc: 'The Aris Round Table features a contemporary geometric base paired with a perfectly circular top, creating a bold yet refined focal point for executive dining rooms, private suites, and upscale restaurant interiors.',
     dimensions: {
-      height: '1080MM',
-      width: '920MM',
-      depth: '980MM (1750MM Reclined)',
-      seatHeight: '490MM',
-      armHeight: '640MM',
-      weight: '64 KG'
+      height: '760MM',
+      width: '1400MM (Diameter)',
+      depth: '1400MM',
+      seatHeight: 'N/A',
+      armHeight: 'N/A',
+      weight: '56 KG'
     },
     specs: {
-      'Motors': 'Dual Okin German electric actuators',
-      'Massage & Heat': '8-point vibration massage + 45°C heated lumbar zone',
-      'Upholstery': 'Top-grain European bovine leather',
-      'Recline Angle': '170° full lay-flat zero gravity positioning',
-      'Weight Capacity': '180kg rated mechanism'
+      'Top': 'Premium solid surface with bevel-edge detail',
+      'Base': 'Geometric multi-faceted steel and wood hybrid',
+      'Seating Capacity': '6-8 persons',
+      'Assembly': 'Professional installation included'
     },
-    finishes: [{ name: 'Polished Brass Ring', hex: '#b3956e' }],
-    frames: [{ name: 'Heavy-Duty Steel Base', hex: '#111111' }],
-    upholstery: [
-      { name: 'Tan Italian Leather', hex: '#94542d' },
-      { name: 'Dark Chocolate', hex: '#2b1b14' },
-      { name: 'Midnight Black', hex: '#111111' }
+    finishes: [
+      { name: 'Antique Brass & Wood', hex: '#94784a' },
+      { name: 'Matte Black & Walnut', hex: '#111111' }
     ],
-    sizes: ['Single Seater Motor Recliner', '2-Seater Motor Set']
+    frames: [{ name: 'Steel & Wood Hybrid', hex: '#2b2622' }],
+    upholstery: [],
+    sizes: ['1400mm Diameter', '1600mm Diameter']
   },
-  'snow-dining': {
-    id: 'snow-dining',
-    name: 'Snow Premium Dining Chair',
-    category: 'DINING CHAIR',
-    categorySlug: 'dining',
-    pdfSource: 'DINNING CHAIR SERIES .pdf',
+
+  'the-kova-accent-table': {
+    id: 'the-kova-accent-table',
+    name: 'The Kova Accent Table',
+    category: 'ACCENT TABLES',
+    categorySlug: 'tables',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
-    warranty: '12 Months Warranty',
+    warranty: '24 Months Warranty',
     rating: 4.6,
-    reviewsCount: 22,
-    stockText: 'IN STOCK - READY TO DELIVER',
-    recommendPct: '91% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80',
+    reviewsCount: 21,
+    stockText: 'IN STOCK — READY TO DELIVER',
+    recommendPct: '92% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-kova-accent-table/the-kova-accent-table-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-kova-accent-table/the-kova-accent-table-1.png',
+      'assets/products/the-kova-accent-table/the-kova-accent-table-2.png',
+      'assets/products/the-kova-accent-table/the-kova-accent-table-3.png'
     ],
-    desc: 'Contemporary dining chair with sculpted wooden legs, curved backrest, and stain-resistant linen upholstery. Originally designed for fine dining venues and luxury homes.',
+    desc: 'The Kova Accent Table is a versatile companion piece designed to complement any living space. Its compact silhouette and refined proportions make it ideal as a side table, bedside table, or decorative accent in hotel lobbies and executive suites.',
     dimensions: {
-      height: '790MM',
-      width: '640MM',
-      depth: '530MM',
-      seatHeight: '445MM',
-      armHeight: '675MM',
-      weight: '7.2 KG'
+      height: '550MM',
+      width: '480MM',
+      depth: '480MM',
+      seatHeight: 'N/A',
+      armHeight: 'N/A',
+      weight: '12 KG'
     },
     specs: {
-      'Wood': 'Solid Ash wood frame',
-      'Upholstery': 'Textured linen fabric',
+      'Top': 'Solid surface with soft-touch finish',
+      'Base': 'Powder-coated steel frame',
+      'Use Case': 'Side table, bedside table, accent piece'
+    },
+    finishes: [
+      { name: 'Natural Oak', hex: '#b8956e' },
+      { name: 'Matte Black', hex: '#111111' }
+    ],
+    frames: [{ name: 'Powder-Coated Steel', hex: '#222222' }],
+    upholstery: [],
+    sizes: ['Standard (480mm)']
+  },
+
+  'the-vesper-accent-table': {
+    id: 'the-vesper-accent-table',
+    name: 'The Vesper Accent Table',
+    category: 'ACCENT TABLES',
+    categorySlug: 'tables',
+    price: 'Price on Enquiry',
+    originalPrice: '',
+    priceRaw: 0,
+    warranty: '24 Months Warranty',
+    rating: 4.7,
+    reviewsCount: 17,
+    stockText: 'ARTISAN COLLECTION',
+    recommendPct: '94% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-vesper-accent-table/the-vesper-accent-table-1.png',
+    gallery: [
+      'assets/products/the-vesper-accent-table/the-vesper-accent-table-1.png',
+      'assets/products/the-vesper-accent-table/the-vesper-accent-table-2.png',
+      'assets/products/the-vesper-accent-table/the-vesper-accent-table-3.png'
+    ],
+    desc: 'The Vesper Accent Table brings sculptural sophistication to intimate spaces. Designed as the perfect companion piece for luxury living rooms, hotel suites, and executive reception areas with a striking silhouette and premium artisan finishing.',
+    dimensions: {
+      height: '600MM',
+      width: '520MM',
+      depth: '520MM',
+      seatHeight: 'N/A',
+      armHeight: 'N/A',
+      weight: '14 KG'
+    },
+    specs: {
+      'Top': 'Hand-finished premium surface',
+      'Base': 'Sculptural solid wood base',
+      'Use Case': 'Centre table, accent piece, hotel lobby display'
+    },
+    finishes: [
+      { name: 'Smoked Walnut', hex: '#3d2b1f' },
+      { name: 'Antique Brass', hex: '#94784a' }
+    ],
+    frames: [{ name: 'Solid Wood Base', hex: '#4a2e1b' }],
+    upholstery: [],
+    sizes: ['Standard (520mm)']
+  },
+
+  /* ─────────────── CHAIRS & SEATING ─────────────── */
+
+  'the-eris-chair': {
+    id: 'the-eris-chair',
+    name: 'The Eris Chair',
+    category: 'DESIGNER CHAIRS',
+    categorySlug: 'chairs',
+    price: 'Price on Enquiry',
+    originalPrice: '',
+    priceRaw: 0,
+    warranty: '24 Months Warranty',
+    rating: 4.9,
+    reviewsCount: 38,
+    stockText: 'BEST SELLER — IN STOCK',
+    recommendPct: '98% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-eris-chair/the-eris-chair-1.png',
+    gallery: [
+      'assets/products/the-eris-chair/the-eris-chair-1.png',
+      'assets/products/the-eris-chair/the-eris-chair-2.png',
+      'assets/products/the-eris-chair/the-eris-chair-3.png',
+      'assets/products/the-eris-chair/the-eris-chair-4.png',
+      'assets/products/the-eris-chair/the-eris-chair-5.png'
+    ],
+    desc: 'The Eris Chair is our best-selling designer accent chair with a wraparound backrest featuring organic flowing lines. Upholstered in premium textured fabric with solid hardwood legs, it is equally at home in executive lounges, boutique hotel lobbies, and luxury living rooms.',
+    dimensions: {
+      height: '820MM',
+      width: '720MM',
+      depth: '680MM',
+      seatHeight: '450MM',
+      armHeight: '620MM',
+      weight: '12.5 KG'
+    },
+    specs: {
+      'Upholstery': 'Premium textured fabric / Italian leatherette',
+      'Frame': 'Solid hardwood with sculpted backrest',
+      'Cushioning': 'High-resilience moulded foam',
+      'Legs': 'Solid wood with brass tip caps',
       'Assembly': 'No assembly required'
     },
     finishes: [
-      { name: 'Natural Ash Wood', hex: '#cbb392' },
+      { name: 'Natural Ash', hex: '#cbb392' },
       { name: 'Walnut Stain', hex: '#4a2e1b' }
     ],
-    frames: [{ name: 'Solid Wood', hex: '#4a2e1b' }],
+    frames: [{ name: 'Solid Hardwood', hex: '#4a2e1b' }],
     upholstery: [
-      { name: 'Oatmeal Beige', hex: '#d9d2c5' },
-      { name: 'Charcoal Grey', hex: '#36363b' }
+      { name: 'Sage Green Fabric', hex: '#7a8b5e' },
+      { name: 'Charcoal Grey', hex: '#36363b' },
+      { name: 'Ivory Cream', hex: '#e8e0d0' }
     ],
-    sizes: ['Standard Armless', 'Carver Armchair']
+    sizes: ['Standard Accent Chair', 'Dining Height Variant']
   },
-  'lisbon-cafe': {
-    id: 'lisbon-cafe',
-    name: 'Lisbon Café Chair (PP/Wood)',
-    category: 'CAFÉ & CAFETERIA',
-    categorySlug: 'cafe',
-    pdfSource: 'CAFE  CHAIR  .pdf',
+
+  'the-aurea': {
+    id: 'the-aurea',
+    name: 'The Aurea',
+    category: 'LUXURY SEATING',
+    categorySlug: 'seating',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
-    warranty: '12 Months Warranty',
-    rating: 4.5,
-    reviewsCount: 31,
-    stockText: 'IN STOCK - BULK DISCOUNTS AVAILABLE',
-    recommendPct: '90% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80',
+    warranty: '24 Months Warranty',
+    rating: 4.8,
+    reviewsCount: 24,
+    stockText: 'SIGNATURE COLLECTION',
+    recommendPct: '96% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-aurea/the-aurea-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-aurea/the-aurea-1.png',
+      'assets/products/the-aurea/the-aurea-2.png',
+      'assets/products/the-aurea/the-aurea-3.png',
+      'assets/products/the-aurea/the-aurea-4.png'
     ],
-    desc: 'Nordic-inspired bistro chair featuring a durable polypropylene bucket shell supported by solid beechwood legs with steel cross-bracing.',
+    desc: 'The Aurea is a statement lounge piece that transforms any space into a destination. With its generous proportions and enveloping form, the Aurea invites deep relaxation while making a bold architectural statement. Premium upholstery options range from rich Italian leatherette to sumptuous velvet.',
     dimensions: {
-      height: '810MM',
-      width: '460MM',
-      depth: '520MM',
-      seatHeight: '450MM',
-      armHeight: 'N/A',
-      weight: '4.8 KG'
+      height: '780MM',
+      width: '850MM',
+      depth: '820MM',
+      seatHeight: '420MM',
+      armHeight: '580MM',
+      weight: '28 KG'
     },
     specs: {
-      'Shell': 'UV-stabilized virgin polypropylene',
-      'Legs': 'Natural Beechwood with anti-scratch feet'
+      'Upholstery': 'Italian leatherette / Premium velvet',
+      'Frame': 'Seasoned hardwood with steel reinforcement',
+      'Cushioning': '32-density super soft foam with feather overlay',
+      'Legs': 'Brushed stainless steel',
+      'Assembly': 'No assembly required'
     },
-    finishes: [{ name: 'Beechwood & Black Steel', hex: '#cba876' }],
-    frames: [{ name: 'Steel Cross-Brace', hex: '#111111' }],
-    upholstery: [
-      { name: 'Matte Black Shell', hex: '#1a1a1a' },
-      { name: 'Pure White Shell', hex: '#f0f0f0' }
+    finishes: [
+      { name: 'Brushed Gold', hex: '#b3956e' },
+      { name: 'Polished Chrome', hex: '#cccccc' }
     ],
-    sizes: ['Standard Dining Height (45cm)']
+    frames: [{ name: 'Hardwood & Steel', hex: '#222222' }],
+    upholstery: [
+      { name: 'Emerald Velvet', hex: '#1b3b2b' },
+      { name: 'Cognac Leather', hex: '#7a4224' },
+      { name: 'Pearl White', hex: '#f0ece4' }
+    ],
+    sizes: ['Single Lounge Chair', 'Oversized Statement Chair']
   },
-  'elegance-desk': {
-    id: 'elegance-desk',
-    name: 'Elegance CEO Executive Desk',
-    category: 'EXECUTIVE DESK',
-    categorySlug: 'tables',
-    pdfSource: 'FBI TABLE CATALOGUE.pdf',
+
+  'the-modus': {
+    id: 'the-modus',
+    name: 'The Modus',
+    category: 'LUXURY SEATING',
+    categorySlug: 'seating',
+    price: 'Price on Enquiry',
+    originalPrice: '',
+    priceRaw: 0,
+    warranty: '24 Months Warranty',
+    rating: 4.7,
+    reviewsCount: 20,
+    stockText: 'DESIGNER SERIES',
+    recommendPct: '94% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-modus/the-modus-1.png',
+    gallery: [
+      'assets/products/the-modus/the-modus-1.png',
+      'assets/products/the-modus/the-modus-2.png',
+      'assets/products/the-modus/the-modus-3.png'
+    ],
+    desc: 'The Modus represents the intersection of minimalist design philosophy and supreme comfort. Its clean geometric lines and precisely angled proportions create a modern masterpiece designed for contemporary living spaces, executive waiting areas, and design-forward hospitality environments.',
+    dimensions: {
+      height: '800MM',
+      width: '760MM',
+      depth: '720MM',
+      seatHeight: '430MM',
+      armHeight: '600MM',
+      weight: '18 KG'
+    },
+    specs: {
+      'Upholstery': 'Premium woven fabric / Microfibre suede',
+      'Frame': 'Angular hardwood frame with precision joinery',
+      'Cushioning': 'Multi-layer high-resilience foam',
+      'Legs': 'Solid wood tapered legs',
+      'Assembly': 'Delivered fully assembled'
+    },
+    finishes: [
+      { name: 'Natural Ash', hex: '#cbb392' },
+      { name: 'Dark Walnut', hex: '#2e1c14' }
+    ],
+    frames: [{ name: 'Angular Hardwood', hex: '#4a2e1b' }],
+    upholstery: [
+      { name: 'Stone Grey', hex: '#8e8e93' },
+      { name: 'Midnight Blue', hex: '#1b2a47' },
+      { name: 'Oatmeal Beige', hex: '#d9d2c5' }
+    ],
+    sizes: ['Standard Lounge', 'Compact Variant']
+  },
+
+  'the-quadra': {
+    id: 'the-quadra',
+    name: 'The Quadra',
+    category: 'LUXURY SEATING',
+    categorySlug: 'seating',
+    price: 'Price on Enquiry',
+    originalPrice: '',
+    priceRaw: 0,
+    warranty: '24 Months Warranty',
+    rating: 4.8,
+    reviewsCount: 19,
+    stockText: "ARCHITECT'S CHOICE",
+    recommendPct: '95% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-quadra/the-quadra-1.png',
+    gallery: [
+      'assets/products/the-quadra/the-quadra-1.png',
+      'assets/products/the-quadra/the-quadra-2.png',
+      'assets/products/the-quadra/the-quadra-3.png'
+    ],
+    desc: 'The Quadra takes its name from its precisely squared structural geometry. With structured cushioning and clean right-angle framework, the Quadra is the choice of interior architects and designers who demand furniture that doubles as art. Built for longevity with commercial-grade materials.',
+    dimensions: {
+      height: '780MM',
+      width: '780MM',
+      depth: '750MM',
+      seatHeight: '440MM',
+      armHeight: '610MM',
+      weight: '22 KG'
+    },
+    specs: {
+      'Upholstery': 'Structured premium fabric / Full-grain leather',
+      'Frame': 'Squared hardwood frame with steel bracing',
+      'Cushioning': 'Structured high-density foam with quilted finish',
+      'Legs': 'Square-profile solid wood',
+      'Assembly': 'No assembly required'
+    },
+    finishes: [
+      { name: 'Ebony Black', hex: '#111111' },
+      { name: 'Natural Walnut', hex: '#5c3a1e' }
+    ],
+    frames: [{ name: 'Squared Hardwood', hex: '#2b2622' }],
+    upholstery: [
+      { name: 'Jet Black Leather', hex: '#111111' },
+      { name: 'Warm Tan', hex: '#94542d' },
+      { name: 'Dove Grey Fabric', hex: '#a8a8ad' }
+    ],
+    sizes: ['Standard Armchair', 'Wide Lounge Version']
+  },
+
+  /* ─────────────── DESKS ─────────────── */
+
+  'the-linear-atelier': {
+    id: 'the-linear-atelier',
+    name: 'The Linear Atelier',
+    category: 'EXECUTIVE DESKS',
+    categorySlug: 'desks',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
     warranty: '36 Months Warranty',
     rating: 4.9,
-    reviewsCount: 15,
-    stockText: 'DIRECT FACTORY FITOUT',
+    reviewsCount: 14,
+    stockText: 'BESPOKE — MADE TO ORDER',
     recommendPct: '100% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1200&q=80',
+    img: 'assets/products/the-linear-atelier/the-linear-atelier-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-linear-atelier/the-linear-atelier-1.png',
+      'assets/products/the-linear-atelier/the-linear-atelier-2.png',
+      'assets/products/the-linear-atelier/the-linear-atelier-3.png'
     ],
-    desc: '72-inch executive desk with side return credenza, mobile pedestal drawers, integrated wireless phone charger, and leatherette inlay writing pad.',
+    desc: 'The Linear Atelier is a precision-crafted executive desk that embodies "less is more." Designed for CEO offices, private studios, and luxury home offices with concealed wire management, soft-close drawers, and optional wireless charging integration.',
     dimensions: {
       height: '760MM (30")',
       width: '1830MM (72")',
@@ -506,124 +502,162 @@ const PRODUCTS_DB = {
       weight: '98 KG'
     },
     specs: {
-      'Dimensions': '72" W × 36" D × 30" H (Return: 48" W)',
+      'Dimensions': '72" W x 36" D x 30" H',
       'Material': 'E1 grade melamine board with aluminium edge banding',
-      'Features': 'Soft-close drawers + wire management flip box'
+      'Features': 'Soft-close drawers, concealed wire management, flip box',
+      'Optional': 'Integrated Qi wireless charger',
+      'Installation': 'Professional fitout & installation included'
     },
-    finishes: [{ name: 'Dark Walnut & Charcoal', hex: '#2e2520' }],
+    finishes: [
+      { name: 'Dark Walnut & Charcoal', hex: '#2e2520' },
+      { name: 'Natural Oak & Silver', hex: '#b8956e' }
+    ],
     frames: [{ name: 'Aluminium Trim', hex: '#cccccc' }],
     upholstery: [{ name: 'Black Leatherette Pad', hex: '#111111' }],
     sizes: ['72" Executive Desk', '84" Director Desk']
   },
-  'the-leaf-table': {
-    id: 'the-leaf-table',
-    name: 'The Leaf Centre Table',
-    category: 'CENTRE & SIDE TABLES',
-    categorySlug: 'tablestand',
-    pdfSource: 'TABLE & STAND PRICELIST.pdf',
+
+  /* ─────────────── BAR & LOUNGE ─────────────── */
+
+  'the-aura-mini-bar': {
+    id: 'the-aura-mini-bar',
+    name: 'The Aura Mini-Bar',
+    category: 'BAR & LOUNGE',
+    categorySlug: 'bar',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
     warranty: '24 Months Warranty',
     rating: 4.8,
-    reviewsCount: 18,
-    stockText: 'ARTISAN COLLECTION',
-    recommendPct: '94% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=80',
+    reviewsCount: 16,
+    stockText: 'HOSPITALITY EXCLUSIVE',
+    recommendPct: '95% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-aura-mini-bar/the-aura-mini-bar-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-aura-mini-bar/the-aura-mini-bar-1.png',
+      'assets/products/the-aura-mini-bar/the-aura-mini-bar-2.png',
+      'assets/products/the-aura-mini-bar/the-aura-mini-bar-3.png'
     ],
-    desc: 'Sculptural organic leaf-shaped coffee table with bevel-edge tempered glass top and brass-finished cast aluminium pedestal.',
+    desc: 'The Aura Mini-Bar is a self-contained entertainment unit designed for luxury hotel suites, executive penthouses, and sophisticated home bars. Featuring integrated ambient lighting, temperature-controlled storage, and a marble-finish countertop.',
     dimensions: {
-      height: '390MM',
-      width: '1920MM',
-      depth: '850MM',
+      height: '1050MM',
+      width: '1200MM',
+      depth: '550MM',
       seatHeight: 'N/A',
       armHeight: 'N/A',
-      weight: '34 KG'
+      weight: '65 KG'
     },
     specs: {
-      'Top': '12mm toughened extra-clear glass',
-      'Base': 'Cast aluminium brass finish'
+      'Counter': 'Marble-finish engineered stone top',
+      'Storage': 'Temperature-controlled compartment with glass rack',
+      'Lighting': 'Integrated ambient LED backlighting',
+      'Material': 'Premium veneer with lacquer finish',
+      'Installation': 'Professional installation included'
     },
-    finishes: [{ name: 'Antique Brass', hex: '#94784a' }],
-    frames: [{ name: 'Cast Aluminium', hex: '#111111' }],
-    upholstery: [{ name: 'Extra Clear Glass', hex: '#ffffff' }],
-    sizes: ['Standard Leaf (1920mm × 390mm)']
+    finishes: [
+      { name: 'Midnight Black Lacquer', hex: '#111111' },
+      { name: 'Smoked Walnut', hex: '#3d2b1f' }
+    ],
+    frames: [{ name: 'Steel Frame with Veneer', hex: '#222222' }],
+    upholstery: [],
+    sizes: ['Standard (1200mm W)', 'Compact (900mm W)']
   },
-  'astoria-highcounter': {
-    id: 'astoria-highcounter',
-    name: 'Astoria Bar Stool',
-    category: 'HIGH COUNTER STOOLS',
-    categorySlug: 'highcounter',
-    pdfSource: 'HIGHCOUNTER PRICELIST.pdf',
+
+  /* ─────────────── SUITES ─────────────── */
+
+  'the-nexus-suite': {
+    id: 'the-nexus-suite',
+    name: 'The Nexus Suite',
+    category: 'ROOM SUITES',
+    categorySlug: 'suites',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
-    warranty: '12 Months Warranty',
-    rating: 4.7,
-    reviewsCount: 14,
-    stockText: 'BAR & RESTO SERIES',
-    recommendPct: '92% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+    warranty: '36 Months Warranty',
+    rating: 4.9,
+    reviewsCount: 12,
+    stockText: 'BESPOKE FITOUT — PREMIUM',
+    recommendPct: '100% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-nexus-suite/the-nexus-suite-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-nexus-suite/the-nexus-suite-1.png',
+      'assets/products/the-nexus-suite/the-nexus-suite-2.png',
+      'assets/products/the-nexus-suite/the-nexus-suite-3.png'
     ],
-    desc: 'Swivel bar stool with hydraulic height adjustment, brass footrest ring, and cushioned leatherette seat for bars & high counters.',
+    desc: 'The Nexus Suite is a comprehensive room furniture solution designed for 5-star hotels and luxury residences. This complete ensemble includes coordinated bed frame, wardrobe system, vanity unit, and lounge seating unified by a consistent design language.',
     dimensions: {
-      height: '650MM – 850MM',
-      width: '420MM',
-      depth: '440MM',
-      seatHeight: '650MM – 850MM',
+      height: 'Variable (Suite Components)',
+      width: 'Room-sized Modular System',
+      depth: 'Customised to Room Layout',
+      seatHeight: 'N/A',
       armHeight: 'N/A',
-      weight: '8.5 KG'
+      weight: '350+ KG (Complete Suite)'
     },
     specs: {
-      'Height Range': '65cm to 85cm adjustable seat height',
-      'Base': 'Weighted chrome-plated steel disk base'
+      'Components': 'Bed, wardrobe, vanity, lounge, nightstands',
+      'Material': 'Commercial-grade MR plywood with premium veneer',
+      'Hardware': 'European soft-close hinges & drawer slides',
+      'Lighting': 'Integrated LED ambient lighting throughout',
+      'Installation': 'Complete turnkey fitout with project management'
     },
-    finishes: [{ name: 'Chrome Plated Disk Base', hex: '#cccccc' }],
-    frames: [{ name: 'Steel Hydraulic Base', hex: '#111111' }],
-    upholstery: [{ name: 'Cognac Brown Leatherette', hex: '#7a4224' }],
-    sizes: ['Adjustable Counter/Bar Height']
+    finishes: [
+      { name: 'Contemporary Dark', hex: '#1a1a1e' },
+      { name: 'Warm Natural', hex: '#b39571' }
+    ],
+    frames: [{ name: 'Modular Steel & Wood', hex: '#111111' }],
+    upholstery: [
+      { name: 'Neutral Linen', hex: '#e3dfd5' },
+      { name: 'Warm Grey', hex: '#6e6e73' }
+    ],
+    sizes: ['Standard Room Suite', 'Penthouse Suite', 'Presidential Suite']
   },
-  'uno-cafeteria': {
-    id: 'uno-cafeteria',
-    name: 'UNO Stackable Cafeteria Chair',
-    category: 'CAFETERIA SERIES',
-    categorySlug: 'cafeteriaseries',
-    pdfSource: 'Cafeteria Series - 1 QCP.pdf',
+
+  /* ─────────────── ACCENT PIECES ─────────────── */
+
+  'the-orb': {
+    id: 'the-orb',
+    name: 'The Orb',
+    category: 'ACCENT PIECES',
+    categorySlug: 'accent',
     price: 'Price on Enquiry',
     originalPrice: '',
     priceRaw: 0,
     warranty: '24 Months Warranty',
-    rating: 4.6,
-    reviewsCount: 38,
-    stockText: 'PATENT CERTIFIED - STACKABLE',
-    recommendPct: '96% OF BUYERS HAVE RECOMMENDED THIS',
-    img: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80',
+    rating: 4.7,
+    reviewsCount: 23,
+    stockText: 'IN STOCK — LIMITED BATCH',
+    recommendPct: '93% OF BUYERS HAVE RECOMMENDED THIS',
+    img: 'assets/products/the-orb/the-orb-1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80'
+      'assets/products/the-orb/the-orb-1.png',
+      'assets/products/the-orb/the-orb-2.png',
+      'assets/products/the-orb/the-orb-3.png'
     ],
-    desc: 'Patent-certified stackable cafeteria chair engineered for institutional dining halls and office pantries. Stacks up to 10 high.',
+    desc: 'The Orb is a sculptural accent piece that transcends traditional furniture categories. Part functional object, part art installation, the Orb creates a captivating visual anchor ideal for hotel lobbies, art galleries, luxury retail, and contemporary living rooms.',
     dimensions: {
-      height: '820MM',
-      width: '480MM',
-      depth: '510MM',
-      seatHeight: '450MM',
+      height: '600MM',
+      width: '600MM',
+      depth: '600MM',
+      seatHeight: 'N/A',
       armHeight: 'N/A',
-      weight: '4.2 KG'
+      weight: '18 KG'
     },
     specs: {
-      'Patent No': 'Design Patent No. 304920',
-      'Stacking': 'Up to 10 chairs vertically',
-      'Frame': 'Powder coated tubular MS frame'
+      'Form': 'Spherical sculptural design',
+      'Material': 'Hand-finished composite with premium coating',
+      'Use Case': 'Accent piece, sculptural element, conversation starter',
+      'Finish': 'Available in multiple premium surface treatments'
     },
-    finishes: [{ name: 'Powder Coated Black Frame', hex: '#111111' }],
-    frames: [{ name: 'Tubular MS Frame', hex: '#222222' }],
-    upholstery: [{ name: 'Charcoal Black Shell', hex: '#1a1a1a' }],
-    sizes: ['Standard Cafeteria Height']
+    finishes: [
+      { name: 'Matte Black', hex: '#111111' },
+      { name: 'Brushed Gold', hex: '#b3956e' },
+      { name: 'Pearl White', hex: '#f0ece4' }
+    ],
+    frames: [],
+    upholstery: [],
+    sizes: ['Standard (600mm)', 'Large (800mm)']
   }
+
 };
 
 if (typeof window !== 'undefined') {

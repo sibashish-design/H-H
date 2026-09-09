@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body class="bg-white text-black" style="font-family: 'DM Sans', sans-serif;">
 
@@ -62,7 +62,7 @@
         </div>
 
         <!-- CENTER MAIN PRODUCT PHOTO BOX WITH CAROUSEL ARROWS -->
-        <div class="relative flex-1 bg-[#f4f4f4] rounded-3xl h-[540px] overflow-hidden group">
+        <div class="relative flex-1 bg-[#f4f4f4] rounded-3xl h-[540px] max-h-[60vh] lg:max-h-none overflow-hidden group">
           <button id="prev-img-btn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-black flex items-center justify-center shadow-md transition-all opacity-0 group-hover:opacity-100 z-10">←</button>
           
           <img id="main-product-photo" src="" alt="Product Photo" class="w-full h-full object-cover transition-all duration-500 hover:scale-105" />
@@ -156,7 +156,7 @@
       <div class="lg:col-span-4 space-y-6">
         <h2 class="text-4xl font-normal tracking-tight text-black">Description</h2>
         <div class="w-full h-48 rounded-2xl overflow-hidden shadow-sm">
-          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Furniture Craftsmanship" class="w-full h-full object-cover" />
+          <img src="assets/products/hotel_room_2nd_series_pdf_img_5.jpg" alt="Furniture Craftsmanship" class="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -362,7 +362,7 @@
   <!-- FOOTER -->
   <footer class="apple-footer-section">
     <div class="footer-bg-wrap">
-      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=90" alt="" aria-hidden="true" />
+      <img src="assets/products/sofa_series_pricelist_pdf_img_1.jpg" alt="" aria-hidden="true" />
       <div class="footer-overlay-gradient"></div>
     </div>
     <div class="apple-footer-inner">
@@ -381,11 +381,11 @@
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Explore</span>
-            <a href="categories.html">Executive Seating</a>
-            <a href="categories.html">Hotel Furniture</a>
-            <a href="categories.html">Lounge & Sofas</a>
-            <a href="categories.html">Dining Chairs</a>
-            <a href="categories.html">Recliners</a>
+            <a href="categories.html">Luxury Beds</a>
+            <a href="categories.html">Designer Tables</a>
+            <a href="categories.html">Luxury Seating</a>
+            <a href="categories.html">Executive Desks</a>
+            <a href="categories.html">Room Suites</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">About Project</span>
@@ -417,13 +417,13 @@
     </div>
   </footer>
 
-  <script src="products-data.js?v=6"></script>
-  <script src="main.js?v=6"></script>
+  <script src="products-data.js?v=7"></script>
+  <script src="main.js?v=7"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const pid = urlParams.get('id') || 'falcon-elite';
-      const p = window.PRODUCTS_DB[pid] || window.PRODUCTS_DB['falcon-elite'];
+      const pid = urlParams.get('id') || 'the-eris-chair';
+      const p = window.PRODUCTS_DB[pid] || window.PRODUCTS_DB['the-eris-chair'];
 
       // Fill headers & metadata safely
       const setTxt = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };

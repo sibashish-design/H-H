@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Shop — H&H Concepts Luxury Furniture Collection. Filter by Category, Price Range, Material, Finish and Availability with Retractable Sidebar." />
+  <meta name="description" content="The Shop — H&H Concepts Luxury Furniture Collection. Browse beds, tables, chairs, seating, desks, bar units & accent pieces." />
   <title>The Shop | H&H Concepts Luxury Furniture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body class="bg-white text-black" style="font-family: 'DM Sans', sans-serif;">
 
@@ -34,126 +33,148 @@
     </button>
   </header>
 
-  <!-- HUGE EDITORIAL HERO TITLE (MATCHING SCREENSHOT) -->
-  <section class="pt-32 pb-8 text-center bg-white border-b border-gray-100">
-    <h1 class="text-[clamp(3.2rem,8vw,7.5rem)] font-bold tracking-tight text-black leading-none">
-      The Shop
-    </h1>
+  <!-- SHOP HERO -->
+  <section class="shop-hero">
+    <h1 class="shop-hero-title">The Shop</h1>
+    <p class="shop-hero-subtitle">Discover Your Furniture Space</p>
   </section>
 
-  <!-- RESULTS CONTROL BAR & MAIN CONTENT WITH RETRACTABLE SIDEBAR -->
-  <section class="max-w-[1500px] mx-auto px-6 py-8">
+  <!-- MOBILE SEARCH BAR (visible on mobile only) -->
+  <div class="shop-mobile-search">
+    <div class="shop-search-pill">
+      <input type="text" id="mobile-search-input" placeholder="Search products..." aria-label="Search products" />
+      <button type="button" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- HORIZONTAL CATEGORY FILTER PILLS (Mobile-first, scrollable) -->
+  <div class="shop-category-scroll">
+    <div class="shop-category-pills" id="filter-categories">
+      <button class="shop-cat-pill active-pill" data-cat="all">
+        <span class="shop-cat-icon">✦</span> All
+      </button>
+      <button class="shop-cat-pill" data-cat="beds">
+        <span class="shop-cat-icon">🛏</span> Beds
+      </button>
+      <button class="shop-cat-pill" data-cat="tables">
+        <span class="shop-cat-icon">◎</span> Tables
+      </button>
+      <button class="shop-cat-pill" data-cat="chairs">
+        <span class="shop-cat-icon">◇</span> Chairs
+      </button>
+      <button class="shop-cat-pill" data-cat="seating">
+        <span class="shop-cat-icon">⬡</span> Seating
+      </button>
+      <button class="shop-cat-pill" data-cat="desks">
+        <span class="shop-cat-icon">▭</span> Desks
+      </button>
+      <button class="shop-cat-pill" data-cat="bar">
+        <span class="shop-cat-icon">◈</span> Bar
+      </button>
+      <button class="shop-cat-pill" data-cat="suites">
+        <span class="shop-cat-icon">▣</span> Suites
+      </button>
+      <button class="shop-cat-pill" data-cat="accent">
+        <span class="shop-cat-icon">●</span> Accent
+      </button>
+    </div>
+  </div>
+
+  <!-- RESULTS CONTROL BAR & MAIN CONTENT -->
+  <section class="shop-main-section">
 
     <!-- SUBHEADER CONTROL BAR -->
-    <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-gray-200">
-      <div class="flex items-center gap-4">
-        <h2 class="text-2xl font-bold tracking-tight text-black">All Products</h2>
-        <!-- RETRACTABLE SIDEBAR TOGGLE BUTTON -->
-        <button id="toggle-sidebar-btn" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-black hover:text-white rounded-full text-xs font-medium transition-all">
+    <div class="shop-control-bar">
+      <div class="shop-control-left">
+        <h2 class="shop-results-title">All Products</h2>
+        <!-- DESKTOP FILTER TOGGLE -->
+        <button id="toggle-sidebar-btn" class="shop-filter-toggle">
           <span id="toggle-icon">◀</span>
           <span id="toggle-text">Hide Filters</span>
         </button>
       </div>
 
-      <div class="flex items-center gap-6 text-xs text-gray-500">
-        <span id="results-count">Showing 16 Results</span>
-        <div class="flex items-center gap-2">
-          <label for="sort-select" class="font-medium text-black">Sort by:</label>
-          <select id="sort-select" class="bg-gray-100 border border-gray-200 text-black text-xs rounded-full px-4 py-2 font-medium focus:outline-none focus:border-black transition-colors cursor-pointer">
+      <div class="shop-control-right">
+        <span id="results-count" class="shop-results-count">Showing 14 Results</span>
+        <div class="shop-sort-wrap">
+          <label for="sort-select" class="shop-sort-label">Sort by:</label>
+          <select id="sort-select" class="shop-sort-select">
             <option value="popular">Most Popular</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
             <option value="newest">Newest Collection</option>
+            <option value="name-az">Name: A-Z</option>
+            <option value="name-za">Name: Z-A</option>
           </select>
         </div>
       </div>
     </div>
 
     <!-- MAIN TWO-COLUMN CONTENT AREA WITH RETRACTABLE SIDEBAR -->
-    <div class="flex flex-col lg:flex-row items-start gap-8 relative">
+    <div class="shop-content-wrap">
 
-      <!-- ═══════════════════════════════════════════════════════════ -->
-      <!-- RETRACTABLE LEFT FILTER SIDEBAR (EXACT MATCH TO SPEC) -->
-      <!-- ═══════════════════════════════════════════════════════════ -->
-      <aside id="filter-sidebar" class="w-full lg:w-72 shrink-0 transition-all duration-300 ease-in-out">
-        <div class="space-y-8 pr-2">
+      <!-- RETRACTABLE LEFT FILTER SIDEBAR (Desktop only) -->
+      <aside id="filter-sidebar" class="shop-sidebar">
+        <div class="shop-sidebar-inner">
 
-          <div class="flex items-center justify-between pb-2 border-b border-gray-200">
-            <span class="text-xs font-bold uppercase tracking-wider text-black">Filter</span>
-            <button id="reset-filters-btn" class="text-[11px] text-gray-400 hover:text-black underline">Reset All</button>
+          <div class="shop-sidebar-header">
+            <span class="shop-sidebar-title">Filter</span>
+            <button id="reset-filters-btn" class="shop-reset-btn">Reset All</button>
           </div>
 
-          <!-- SECTION 1: BY CATEGORY -->
-          <div>
-            <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">By Category</span>
-            <div class="flex flex-wrap gap-2" id="filter-categories">
+          <!-- BY CATEGORY (DESKTOP) -->
+          <div class="shop-filter-group">
+            <span class="shop-filter-label">By Category</span>
+            <div class="shop-filter-pills" id="desktop-filter-categories">
               <button class="cat-pill active-pill" data-cat="all">All</button>
-              <button class="cat-pill" data-cat="executive">Executive</button>
-              <button class="cat-pill" data-cat="ergo">Ergo Chair</button>
-              <button class="cat-pill" data-cat="tables">Desk</button>
-              <button class="cat-pill" data-cat="dining">Dining</button>
-              <button class="cat-pill" data-cat="hotel">Bed Suite</button>
-              <button class="cat-pill" data-cat="lounge">Lounge</button>
-              <button class="cat-pill" data-cat="sofa">Sofa</button>
-              <button class="cat-pill" data-cat="recliner">Recliner</button>
-              <button class="cat-pill" data-cat="cafe">Café</button>
+              <button class="cat-pill" data-cat="beds">Beds</button>
+              <button class="cat-pill" data-cat="tables">Tables</button>
+              <button class="cat-pill" data-cat="chairs">Chairs</button>
+              <button class="cat-pill" data-cat="seating">Seating</button>
+              <button class="cat-pill" data-cat="desks">Desks</button>
+              <button class="cat-pill" data-cat="bar">Bar</button>
+              <button class="cat-pill" data-cat="suites">Suites</button>
+              <button class="cat-pill" data-cat="accent">Accent</button>
             </div>
           </div>
 
-          <!-- SECTION 2: PRICING STATUS -->
-          <div>
-            <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Pricing Status</span>
-            <div class="flex flex-wrap gap-2">
+          <!-- PRICING STATUS -->
+          <div class="shop-filter-group">
+            <span class="shop-filter-label">Pricing Status</span>
+            <div class="shop-filter-pills">
               <button class="quick-price-btn active-pill">Price on Request</button>
               <button class="quick-price-btn">B2B Trade Pricing</button>
               <button class="quick-price-btn">Custom Project Quote</button>
             </div>
           </div>
 
-          <!-- SECTION 3: MATERIAL -->
-          <div>
-            <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Material</span>
-            <div class="flex flex-wrap gap-2" id="filter-materials">
-              <button class="mat-pill" data-mat="mesh">Korean Mesh</button>
-              <button class="mat-pill" data-mat="leather">Leather</button>
-              <button class="mat-pill" data-mat="wood">Solid Wood</button>
-              <button class="mat-pill" data-mat="veneer">Veneer</button>
-              <button class="mat-pill" data-mat="fabric">Fabric</button>
-              <button class="mat-pill" data-mat="metal">Metal Accents</button>
-            </div>
-          </div>
-
-          <!-- SECTION 4: FINISH / COLOR SWATCHES -->
-          <div>
-            <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Finish</span>
-            <div class="flex flex-wrap gap-2" id="filter-finishes">
+          <!-- FINISH / COLOR SWATCHES -->
+          <div class="shop-filter-group">
+            <span class="shop-filter-label">Finish</span>
+            <div class="shop-filter-pills" id="filter-finishes">
               <button class="finish-swatch" data-finish="natural">
-                <span class="w-3.5 h-3.5 rounded-full bg-[#d8b88e] border border-black/20"></span>
+                <span class="swatch-dot" style="background:#d8b88e;"></span>
                 <span>Natural</span>
               </button>
               <button class="finish-swatch" data-finish="walnut">
-                <span class="w-3.5 h-3.5 rounded-full bg-[#4a2e1b] border border-black/20"></span>
+                <span class="swatch-dot" style="background:#4a2e1b;"></span>
                 <span>Walnut</span>
               </button>
               <button class="finish-swatch" data-finish="oak">
-                <span class="w-3.5 h-3.5 rounded-full bg-[#b8956e] border border-black/20"></span>
+                <span class="swatch-dot" style="background:#b8956e;"></span>
                 <span>Oak</span>
               </button>
               <button class="finish-swatch" data-finish="black">
-                <span class="w-3.5 h-3.5 rounded-full bg-[#111111] border border-black/20"></span>
+                <span class="swatch-dot" style="background:#111111;"></span>
                 <span>Black</span>
-              </button>
-              <button class="finish-swatch" data-finish="white">
-                <span class="w-3.5 h-3.5 rounded-full bg-[#ffffff] border border-black/30"></span>
-                <span>White</span>
               </button>
             </div>
           </div>
 
-          <!-- SECTION 5: AVAILABILITY -->
-          <div>
-            <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Availability</span>
-            <div class="flex flex-wrap gap-2">
+          <!-- AVAILABILITY -->
+          <div class="shop-filter-group">
+            <span class="shop-filter-label">Availability</span>
+            <div class="shop-filter-pills">
               <button class="avail-pill active-pill" data-avail="all">All</button>
               <button class="avail-pill" data-avail="stock">In Stock</button>
               <button class="avail-pill" data-avail="order">Made to Order</button>
@@ -164,11 +185,9 @@
         </div>
       </aside>
 
-      <!-- ═══════════════════════════════════════════════════════════ -->
-      <!-- PRODUCT GRID (3 COLUMNS DESKTOP / 4 COLUMNS WHEN SIDEBAR HIDDEN) -->
-      <!-- ═══════════════════════════════════════════════════════════ -->
-      <main class="flex-1 min-w-0">
-        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 transition-all duration-300" id="shop-product-grid">
+      <!-- PRODUCT GRID -->
+      <main class="shop-grid-main">
+        <div class="shop-product-grid" id="shop-product-grid">
           <!-- Products dynamically injected via products-data.js -->
         </div>
       </main>
@@ -176,28 +195,28 @@
     </div>
   </section>
 
-  <!-- PROGRAMMATIC SEO LOCATION DIRECTORY (INTERNAL BACKLINKS) -->
-  <section class="max-w-[1500px] mx-auto px-6 pt-16 pb-12 border-t border-gray-200 mt-16">
+  <!-- PROGRAMMATIC SEO LOCATION DIRECTORY -->
+  <section class="shop-seo-section">
     <p class="eyebrow">Programmatic SEO Location Hubs</p>
-    <h3 class="text-xl font-serif mb-6">Popular Location Directories & Commercial Fitout Hubs</h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-xs">
-      <a href="locations/executive-seating-dehradun.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Executive Seating Dehradun</a>
-      <a href="locations/ergo-office-chairs-delhi-ncr.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Ergo Chairs Delhi NCR</a>
-      <a href="locations/hotel-room-furniture-mumbai.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Hotel Furniture Mumbai</a>
-      <a href="locations/lounge-chairs-bangalore.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Lounge Chairs Bangalore</a>
-      <a href="locations/sofa-series-hyderabad.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Luxury Sofas Hyderabad</a>
-      <a href="locations/dining-chairs-pune.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Dining Chairs Pune</a>
-      <a href="locations/cafe-chairs-chandigarh.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Café Chairs Chandigarh</a>
-      <a href="locations/recliner-series-jaipur.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Recliners Jaipur</a>
-      <a href="locations/tables-and-desks-ahmedabad.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Executive Desks Ahmedabad</a>
-      <a href="locations/high-counter-stools-gurgaon.html" class="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-black transition-colors font-medium">Bar Stools Gurgaon</a>
+    <h3 class="shop-seo-title">Popular Location Directories & Commercial Fitout Hubs</h3>
+    <div class="shop-seo-grid">
+      <a href="locations/executive-seating-dehradun.html" class="shop-seo-link">Executive Seating Dehradun</a>
+      <a href="locations/ergo-office-chairs-delhi-ncr.html" class="shop-seo-link">Ergo Chairs Delhi NCR</a>
+      <a href="locations/hotel-room-furniture-mumbai.html" class="shop-seo-link">Hotel Furniture Mumbai</a>
+      <a href="locations/lounge-chairs-bangalore.html" class="shop-seo-link">Lounge Chairs Bangalore</a>
+      <a href="locations/sofa-series-hyderabad.html" class="shop-seo-link">Luxury Sofas Hyderabad</a>
+      <a href="locations/dining-chairs-pune.html" class="shop-seo-link">Dining Chairs Pune</a>
+      <a href="locations/cafe-chairs-chandigarh.html" class="shop-seo-link">Café Chairs Chandigarh</a>
+      <a href="locations/recliner-series-jaipur.html" class="shop-seo-link">Recliners Jaipur</a>
+      <a href="locations/tables-and-desks-ahmedabad.html" class="shop-seo-link">Executive Desks Ahmedabad</a>
+      <a href="locations/high-counter-stools-gurgaon.html" class="shop-seo-link">Bar Stools Gurgaon</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="apple-footer-section">
     <div class="footer-bg-wrap">
-      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=90" alt="" aria-hidden="true" />
+      <img src="assets/products/sofa_series_pricelist_pdf_img_1.jpg" alt="" aria-hidden="true" />
       <div class="footer-overlay-gradient"></div>
     </div>
     <div class="apple-footer-inner">
@@ -216,11 +235,11 @@
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Explore</span>
-            <a href="categories.html">Executive Seating</a>
-            <a href="categories.html">Hotel Furniture</a>
-            <a href="categories.html">Lounge & Sofas</a>
-            <a href="categories.html">Dining Chairs</a>
-            <a href="categories.html">Recliners</a>
+            <a href="categories.html">Luxury Beds</a>
+            <a href="categories.html">Designer Tables</a>
+            <a href="categories.html">Luxury Seating</a>
+            <a href="categories.html">Executive Desks</a>
+            <a href="categories.html">Room Suites</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">About Project</span>
@@ -252,12 +271,12 @@
     </div>
   </footer>
 
-  <script src="products-data.js?v=6"></script>
-  <script src="main.js?v=6"></script>
+  <script src="products-data.js?v=7"></script>
+  <script src="main.js?v=7"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-      // Retractable Sidebar Toggle Logic
+      // Retractable Sidebar Toggle Logic (Desktop)
       const sidebar = document.getElementById('filter-sidebar');
       const toggleBtn = document.getElementById('toggle-sidebar-btn');
       const toggleIcon = document.getElementById('toggle-icon');
@@ -265,30 +284,24 @@
       const grid = document.getElementById('shop-product-grid');
       let sidebarOpen = true;
 
-      toggleBtn.addEventListener('click', () => {
-        sidebarOpen = !sidebarOpen;
-        if (sidebarOpen) {
-          sidebar.classList.remove('hidden', 'opacity-0', 'overflow-hidden');
-          sidebar.classList.add('lg:w-72');
-          toggleIcon.textContent = '◀';
-          toggleText.textContent = 'Hide Filters';
-          grid.classList.remove('lg:grid-cols-4');
-          grid.classList.add('lg:grid-cols-3');
-        } else {
-          sidebar.classList.remove('lg:w-72');
-          sidebar.classList.add('hidden', 'opacity-0', 'overflow-hidden');
-          toggleIcon.textContent = '▶';
-          toggleText.textContent = 'Show Filters';
-          grid.classList.remove('lg:grid-cols-3');
-          grid.classList.add('lg:grid-cols-4');
-        }
-      });
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          sidebarOpen = !sidebarOpen;
+          if (sidebarOpen) {
+            sidebar.classList.remove('sidebar-hidden');
+            toggleIcon.textContent = '◀';
+            toggleText.textContent = 'Hide Filters';
+          } else {
+            sidebar.classList.add('sidebar-hidden');
+            toggleIcon.textContent = '▶';
+            toggleText.textContent = 'Show Filters';
+          }
+        });
+      }
 
       // Filter State
       let activeCategory = 'all';
-      let maxPrice = 130000;
-      let activeMaterial = null;
-      let activeFinish = null;
+      let searchQuery = '';
       let activeSort = 'popular';
 
       const allProducts = Object.values(window.PRODUCTS_DB);
@@ -296,51 +309,44 @@
       function renderShopProducts() {
         let filtered = allProducts.filter(p => {
           if (activeCategory !== 'all' && p.categorySlug !== activeCategory) return false;
-          if (p.priceRaw > maxPrice) return false;
+          if (searchQuery && !p.name.toLowerCase().includes(searchQuery.toLowerCase()) && !p.category.toLowerCase().includes(searchQuery.toLowerCase())) return false;
           return true;
         });
 
         // Sorting
-        if (activeSort === 'price-low') {
-          filtered.sort((a, b) => a.priceRaw - b.priceRaw);
-        } else if (activeSort === 'price-high') {
-          filtered.sort((a, b) => b.priceRaw - a.priceRaw);
+        if (activeSort === 'name-az') {
+          filtered.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (activeSort === 'name-za') {
+          filtered.sort((a, b) => b.name.localeCompare(a.name));
+        } else if (activeSort === 'newest') {
+          filtered.reverse();
         }
 
         document.getElementById('results-count').textContent = `Showing ${filtered.length} Results`;
 
-        const badges = ['Best Seller', 'New', '20% Off', '24M Warranty', 'Popular'];
+        const badges = ['Best Seller', 'New', 'Signature', '36M Warranty', 'Popular', 'Artisan', 'Bespoke', 'Designer'];
 
         grid.innerHTML = filtered.map((p, idx) => {
           const badgeText = badges[idx % badges.length];
-          const isDiscount = badgeText === '20% Off';
-          const badgeClass = isDiscount ? 'bg-[#7a8b38] text-white' : 'bg-[#e5e5ea] text-black';
+          const badgeClass = badgeText === 'Best Seller' ? 'shop-badge-highlight' : 'shop-badge-default';
 
           return `
-            <div class="group relative bg-[#f4f4f4] hover:bg-[#eaeaea] rounded-2xl p-3.5 sm:p-6 transition-all duration-300 flex flex-col justify-between cursor-pointer border border-transparent hover:border-black/10" onclick="window.location.href='product.html?id=${p.id}'">
+            <div class="shop-card" onclick="window.location.href='product.html?id=${p.id}'">
               
-              <!-- TOP OVERLAYS -->
-              <div class="flex items-center justify-between mb-2 sm:mb-4 z-10">
-                <span class="${badgeClass} text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider">${badgeText}</span>
-                <div class="flex items-center gap-1.5 sm:gap-2">
-                  <button class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/80 hover:bg-white text-black flex items-center justify-center text-xs shadow-sm transition-transform hover:scale-110" onclick="event.stopPropagation(); alert('Added ${p.name} to wishlist!')" title="Add to Wishlist">♡</button>
-                  <button class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/80 hover:bg-white text-black flex items-center justify-center text-xs shadow-sm transition-transform hover:scale-110" onclick="event.stopPropagation(); window.location.href='product.html?id=${p.id}'" title="Quick View">↗</button>
-                </div>
+              <!-- CARD IMAGE AREA -->
+              <div class="shop-card-image-wrap">
+                <span class="shop-card-badge ${badgeClass}">${badgeText}</span>
+                <img src="${p.img}" alt="${p.name}" class="shop-card-image" loading="lazy" />
               </div>
 
-              <!-- HIGH-RESOLUTION PRODUCT IMAGE -->
-              <div class="h-36 sm:h-64 w-full overflow-hidden rounded-xl bg-gray-100 my-1 sm:my-2">
-                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <!-- BOTTOM INFO ROW (TITLE LEFT, ENQUIRE PRICE RIGHT) -->
-              <div class="flex flex-col sm:flex-row sm:items-end justify-between pt-2.5 sm:pt-4 mt-1 sm:mt-2 border-t border-black/5 gap-2">
-                <div>
-                  <h3 class="font-bold text-xs sm:text-base text-black group-hover:underline leading-snug line-clamp-1">${p.name}</h3>
-                  <span class="text-[10px] sm:text-[11px] text-gray-400 font-medium block mt-0.5">${p.category}</span>
-                </div>
-                <div class="text-left sm:text-right">
-                  <span class="font-semibold text-[10px] sm:text-xs text-black inline-block bg-black/5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full hover:bg-black hover:text-white transition-colors">Price on Enquiry ↗</span>
+              <!-- CARD INFO -->
+              <div class="shop-card-info">
+                <h3 class="shop-card-name">${p.name}</h3>
+                <div class="shop-card-meta">
+                  <span class="shop-card-price">${p.price}</span>
+                  <button class="shop-card-enquire" onclick="event.stopPropagation(); window.location.href='product.html?id=${p.id}'" title="View Details">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  </button>
                 </div>
               </div>
             </div>
@@ -350,39 +356,44 @@
 
       renderShopProducts();
 
-      // Category Pill Click
-      document.querySelectorAll('#filter-categories .cat-pill').forEach(btn => {
+      // Mobile category pill click
+      document.querySelectorAll('#filter-categories .shop-cat-pill').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('#filter-categories .cat-pill').forEach(b => {
-            b.className = 'cat-pill';
-          });
-          btn.className = 'cat-pill active-pill';
+          document.querySelectorAll('#filter-categories .shop-cat-pill').forEach(b => b.classList.remove('active-pill'));
+          btn.classList.add('active-pill');
           activeCategory = btn.dataset.cat;
+          // Sync desktop pills
+          document.querySelectorAll('#desktop-filter-categories .cat-pill').forEach(b => {
+            b.classList.remove('active-pill');
+            if (b.dataset.cat === activeCategory) b.classList.add('active-pill');
+          });
           renderShopProducts();
         });
       });
 
-      // Price Slider
-      const priceInput = document.getElementById('price-range-input');
-      const priceVal = document.getElementById('price-val');
+      // Desktop category pill click
+      document.querySelectorAll('#desktop-filter-categories .cat-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#desktop-filter-categories .cat-pill').forEach(b => b.classList.remove('active-pill'));
+          btn.classList.add('active-pill');
+          activeCategory = btn.dataset.cat;
+          // Sync mobile pills
+          document.querySelectorAll('#filter-categories .shop-cat-pill').forEach(b => {
+            b.classList.remove('active-pill');
+            if (b.dataset.cat === activeCategory) b.classList.add('active-pill');
+          });
+          renderShopProducts();
+        });
+      });
 
-      if (priceInput && priceVal) {
-        priceInput.addEventListener('input', e => {
-          maxPrice = parseInt(e.target.value, 10);
-          priceVal.textContent = `Up to ₹${maxPrice.toLocaleString()}`;
+      // Search
+      const searchInput = document.getElementById('mobile-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', e => {
+          searchQuery = e.target.value;
           renderShopProducts();
         });
       }
-
-      // Quick Price Buttons
-      document.querySelectorAll('.quick-price-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          maxPrice = parseInt(btn.dataset.max, 10);
-          priceInput.value = maxPrice;
-          priceVal.textContent = `Up to ₹${maxPrice.toLocaleString()}`;
-          renderShopProducts();
-        });
-      });
 
       // Sorting Dropdown
       document.getElementById('sort-select').addEventListener('change', e => {
@@ -393,13 +404,12 @@
       // Reset All
       document.getElementById('reset-filters-btn').addEventListener('click', () => {
         activeCategory = 'all';
-        maxPrice = 130000;
-        priceInput.value = 130000;
-        priceVal.textContent = 'Up to ₹1,30,000';
-        document.querySelectorAll('#filter-categories .cat-pill').forEach(b => {
-          b.className = 'cat-pill';
-        });
-        document.querySelector('#filter-categories .cat-pill[data-cat="all"]').className = 'cat-pill active-pill';
+        searchQuery = '';
+        if (searchInput) searchInput.value = '';
+        document.querySelectorAll('#filter-categories .shop-cat-pill').forEach(b => b.classList.remove('active-pill'));
+        document.querySelector('#filter-categories .shop-cat-pill[data-cat="all"]').classList.add('active-pill');
+        document.querySelectorAll('#desktop-filter-categories .cat-pill').forEach(b => b.classList.remove('active-pill'));
+        document.querySelector('#desktop-filter-categories .cat-pill[data-cat="all"]').classList.add('active-pill');
         renderShopProducts();
       });
 
