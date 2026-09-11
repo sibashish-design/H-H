@@ -248,9 +248,20 @@ input, textarea, select { font: inherit; }
 .site-header:not(.scrolled):not(.header-light) .logo-light { display: none !important; }
 .site-header:not(.scrolled):not(.header-light) #nav a:not(.nav-cta) { color: #ffffff !important; }
 .site-header:not(.scrolled):not(.header-light) #nav a:not(.nav-cta)::after { background: #ffffff !important; }
+.site-header:not(.scrolled):not(.header-light) #nav a.nav-cta {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.2) !important;
+}
+.site-header:not(.scrolled):not(.header-light) #nav a.nav-cta span { color: #000000 !important; }
+.site-header:not(.scrolled):not(.header-light) #nav a.nav-cta:hover {
+  background: #e5e5ea !important;
+  color: #000000 !important;
+}
 .site-header:not(.scrolled):not(.header-light) .menu-toggle span { background: #ffffff !important; }
 
-/* Scrolled state & Light Header: White Background, Black Logo, High Contrast Black Nav Links */
+/* Scrolled state & Light Header: White Background, Black Logo, High Contrast Black Nav Links, Black CTA Button */
 .site-header.scrolled, .site-header.header-light {
   background: #ffffff !important;
   color: #000000 !important;
@@ -261,33 +272,18 @@ input, textarea, select { font: inherit; }
 .site-header.scrolled .logo-light, .site-header.header-light .logo-light { display: block !important; }
 .site-header.scrolled #nav:not(.open) a:not(.nav-cta), .site-header.header-light #nav:not(.open) a:not(.nav-cta) { color: #000000 !important; }
 .site-header.scrolled #nav:not(.open) a:not(.nav-cta)::after, .site-header.header-light #nav:not(.open) a:not(.nav-cta)::after { background: #000000 !important; }
-.site-header.scrolled .menu-toggle:not(.open) span, .site-header.header-light .menu-toggle:not(.open) span { background: #000000 !important; }
-
-/* ENQUIRE CTA BUTTON — ALWAYS BLACK BACKGROUND WITH WHITE TEXT & ARROW */
-#nav a.nav-cta,
-.site-header #nav a.nav-cta,
-.site-header.scrolled #nav a.nav-cta,
-.site-header.header-light #nav a.nav-cta {
+.site-header.scrolled #nav a.nav-cta, .site-header.header-light #nav a.nav-cta {
   background: #000000 !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
 }
-
-#nav a.nav-cta span,
-.site-header #nav a.nav-cta span,
-.site-header.scrolled #nav a.nav-cta span,
-.site-header.header-light #nav a.nav-cta span {
-  color: #ffffff !important;
-}
-
-#nav a.nav-cta:hover,
-.site-header #nav a.nav-cta:hover,
-.site-header.scrolled #nav a.nav-cta:hover,
-.site-header.header-light #nav a.nav-cta:hover {
+.site-header.scrolled #nav a.nav-cta span, .site-header.header-light #nav a.nav-cta span { color: #ffffff !important; }
+.site-header.scrolled #nav a.nav-cta:hover, .site-header.header-light #nav a.nav-cta:hover {
   background: #222225 !important;
   color: #ffffff !important;
 }
+.site-header.scrolled .menu-toggle:not(.open) span, .site-header.header-light .menu-toggle:not(.open) span { background: #000000 !important; }
 
 .header-logo {
   display: flex; align-items: center; height: 68px;
