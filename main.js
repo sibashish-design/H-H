@@ -6,10 +6,10 @@
 'use strict';
 
 /* ── PRELOADER ─────────────────────────────────── */
-(function preloader () {
-  const el    = document.getElementById('preloader');
-  const pct   = document.getElementById('preloader-pct');
-  const bar   = el ? el.querySelector('.preloader-bar') : null;
+(function preloader() {
+  const el = document.getElementById('preloader');
+  const pct = document.getElementById('preloader-pct');
+  const bar = el ? el.querySelector('.preloader-bar') : null;
   if (!el || !pct || !bar) return;
 
   let current = 0;
@@ -19,13 +19,13 @@
   fill.style.cssText = 'height:100%;background:#ffffff;border-radius:2px;width:0%;transition:width .05s linear';
   bar.appendChild(fill);
 
-  function done () {
+  function done() {
     el.classList.add('hidden');
     setTimeout(() => el.remove(), 800);
     document.body.style.overflow = '';
   }
 
-  function tickFill () {
+  function tickFill() {
     if (current < target) {
       const remaining = target - current;
       const step = Math.max(0.5, remaining * 0.04 + Math.random() * 1.5);
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── PAGE TRANSITION OVERLAY ────────────────── */
   const curtain = document.getElementById('page-curtain');
-  
-  function navigateWithCurtain (url) {
+
+  function navigateWithCurtain(url) {
     if (!curtain) {
       window.location.href = url;
       return;
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── CUSTOM CURSOR ─────────── */
-  const cursor   = document.querySelector('.cursor');
+  const cursor = document.querySelector('.cursor');
   const follower = document.querySelector('.cursor-follower');
   if (cursor && follower) {
     let fx = 0, fy = 0, mx = 0, my = 0;
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mx = e.clientX; my = e.clientY;
       cursor.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
     });
-    (function animFollower () {
+    (function animFollower() {
       fx += (mx - fx) * 0.14;
       fy += (my - fy) * 0.14;
       follower.style.transform = `translate(${fx}px,${fy}px) translate(-50%,-50%)`;
@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressLine = document.querySelector('.scroll-progress i');
   if (progressLine) {
     window.addEventListener('scroll', () => {
-      const max  = document.documentElement.scrollHeight - window.innerHeight;
-      const pct  = max > 0 ? window.scrollY / max : 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? window.scrollY / max : 0;
       progressLine.style.height = (pct * 100) + '%';
     }, { passive: true });
   }
@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       menuToggle.classList.toggle('open', open);
+      if (header) header.classList.toggle('menu-open', open);
       menuToggle.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
@@ -141,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target.tagName === 'A') {
         nav.classList.remove('open');
         menuToggle.classList.remove('open');
+        if (header) header.classList.remove('menu-open');
         menuToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
@@ -160,10 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     dock.className = 'mobile-bottom-dock';
     dock.id = 'mobile-bottom-dock';
     dock.innerHTML = `
-      <a href="index.html" class="${isHome ? 'active' : ''}"><span>🏠</span> Home</a>
-      <a href="categories.html" class="${isShop ? 'active' : ''}"><span>🛍️</span> Shop</a>
-      <a href="spaces.html" class="${isSpaces ? 'active' : ''}"><span>✨</span> Spaces</a>
-      <a href="contact.html" class="dock-cta">Enquire ↗</a>
+      <a href="index.html" class="${isHome ? 'active' : ''}"><span></span> Home</a>
+      <a href="categories.html" class="${isShop ? 'active' : ''}"><span></span> Shop</a>
+      <a href="spaces.html" class="${isSpaces ? 'active' : ''}"><span></span> Spaces</a>
+      <a href="contact.html" class="dock-cta">Enquire</a>
     `;
     document.body.appendChild(dock);
   })();
@@ -186,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const countObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const el  = entry.target;
+        const el = entry.target;
         const num = el.querySelector('.stat-number');
         const end = parseInt(el.dataset.count, 10);
         if (num && end) {
@@ -247,22 +249,71 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', e => {
       e.preventDefault();
       const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Sending…';
+      const name = document.getElementById('cf-name')?.value || '';
+      const email = document.getElementById('cf-email')?.value || '';
+      const category = document.getElementById('cf-category')?.value || 'General';
+      const message = document.getElementById('cf-message')?.value || '';
+
+      const subject = encodeURIComponent(`Project & Trade Enquiry: ${category} - ${name}`);
+      const body = encodeURIComponent(
+        `H&H CONCEPTS — PROJECT & TRADE ENQUIRY\n` +
+        `-----------------------------------------\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Furniture Category: ${category}\n\n` +
+        `Project Description & Details:\n${message}\n` +
+        `-----------------------------------------\n` +
+        `Sent via H&H Concepts Official Contact Portal`
+      );
+
+      btn.textContent = 'Opening Mail App…';
       btn.style.opacity = '.6';
       btn.disabled = true;
+
+      window.location.href = `mailto:fbifurniture@gmail.com?subject=${subject}&body=${body}`;
+
       setTimeout(() => {
-        btn.textContent = 'Sent ✓';
-        formMsg.textContent = 'Thank you! We will be in touch within 1 business day.';
+        btn.textContent = 'Enquiry Sent ✓';
+        formMsg.textContent = 'Thank you! Your enquiry has been prepared for fbifurniture@gmail.com.';
         btn.style.opacity = '1';
         btn.disabled = false;
         form.reset();
         setTimeout(() => {
           btn.textContent = 'Send Enquiry →';
           formMsg.textContent = '';
-        }, 5000);
-      }, 1400);
+        }, 6000);
+      }, 1000);
     });
   }
+
+  /* ── FOOTER NEWSLETTER SUBSCRIPTION ── */
+  document.querySelectorAll('.footer-subscribe-pill').forEach(pill => {
+    const input = pill.querySelector('input');
+    const button = pill.querySelector('button');
+    if (input && button) {
+      button.addEventListener('click', e => {
+        e.preventDefault();
+        const email = input.value.trim();
+        if (!email || !email.includes('@')) {
+          input.focus();
+          return;
+        }
+        const subject = encodeURIComponent(`Newsletter Subscription: ${email}`);
+        const body = encodeURIComponent(`Please add ${email} to H&H Concepts weekly furniture news & update list.`);
+        window.location.href = `mailto:fbifurniture@gmail.com?subject=${subject}&body=${body}`;
+
+        button.textContent = 'SUBSCRIBED ✓';
+        button.style.background = '#22c55e';
+        button.style.color = '#ffffff';
+        input.value = '';
+        setTimeout(() => {
+          button.textContent = 'SUBSCRIBE';
+          button.style.background = '';
+          button.style.color = '';
+        }, 4000);
+      });
+    }
+  });
 
   /* ── MODAL DATA ─────────────── */
   const modalData = {
@@ -271,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Premium Office Chairs',
       img: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=900&q=80',
       desc: 'Our executive seating range spans from high-end imported leather chairs to domestic ergonomic models — all engineered for long-hour comfort, lumbar support and refined aesthetics. Perfect for boardrooms, CEO cabins, and partner offices.',
-      products: ['Freedom','Falcon Elite','Galaxy Mesh','Galaxy Grey','Bassel','ZOY','Norway','Troy','Cross','Acosta','Attitude','Bentley','Calvin','Martin','Oyster','Magnet','Marquis','Winster','Jaguar','Heritage','Legacy','Daisy','Epson','Stanley','Boss','Austin','Dacota','Oxford','Virgo','Venice','Lucy','Sleek','Elite Sleek'],
+      products: ['Freedom', 'Falcon Elite', 'Galaxy Mesh', 'Galaxy Grey', 'Bassel', 'ZOY', 'Norway', 'Troy', 'Cross', 'Acosta', 'Attitude', 'Bentley', 'Calvin', 'Martin', 'Oyster', 'Magnet', 'Marquis', 'Winster', 'Jaguar', 'Heritage', 'Legacy', 'Daisy', 'Epson', 'Stanley', 'Boss', 'Austin', 'Dacota', 'Oxford', 'Virgo', 'Venice', 'Lucy', 'Sleek', 'Elite Sleek'],
       meta: 'From ₹8,500 · Up to ₹1,30,000 · All prices ex-GST'
     },
     ergo: {
@@ -279,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'FBI Ergo Series · 24-month warranty',
       img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=900&q=80',
       desc: 'FBI Ergo Series (New Collection 2024) — designed from the ground up for all-day comfort. Features adjustable seat height, lumbar support, adjustable armrests, swivel base, breathable mesh and PU waterfall seat cushions for extended seating.',
-      products: ['Nova','Ignis','Pinnacle','Heaven','Ventura','Jupiter','Pulse','Vibe','Gallop','Orbit','Nex','Vega','Cooper','Levo','Pisces','Czar'],
+      products: ['Nova', 'Ignis', 'Pinnacle', 'Heaven', 'Ventura', 'Jupiter', 'Pulse', 'Vibe', 'Gallop', 'Orbit', 'Nex', 'Vega', 'Cooper', 'Levo', 'Pisces', 'Czar'],
       meta: 'Adjustable height · Lumbar & headrest · 24-month warranty support'
     },
     workstation: {
@@ -287,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Ergonomic everyday seating',
       img: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80',
       desc: 'Built for open-plan offices, co-working spaces and institutional settings. A wide range from imported premium models (IMP) to economical domestic variants (IND) — all with mesh backs, lumbar support and class 4 gas lift.',
-      products: ['Lido','Smart','Norway','Brick','Hexa','Trio BLK','Trio GREY','Deca','Pearl','Sweety','Glaze','Omega','Winner','Octa','Time','Roy/Troy','Zen','Karina','Polo','Eon','Vista','Smile','Ergon','Jupitor','Sky','Leo','Kabel','Flash','Quest','Vitro','Colt','Mono','Sara','Queen','Flip Tablet','Key Tablet','Sweden Tablet','Cosmo Tablet'],
+      products: ['Lido', 'Smart', 'Norway', 'Brick', 'Hexa', 'Trio BLK', 'Trio GREY', 'Deca', 'Pearl', 'Sweety', 'Glaze', 'Omega', 'Winner', 'Octa', 'Time', 'Roy/Troy', 'Zen', 'Karina', 'Polo', 'Eon', 'Vista', 'Smile', 'Ergon', 'Jupitor', 'Sky', 'Leo', 'Kabel', 'Flash', 'Quest', 'Vitro', 'Colt', 'Mono', 'Sara', 'Queen', 'Flip Tablet', 'Key Tablet', 'Sweden Tablet', 'Cosmo Tablet'],
       meta: 'From ₹5,200 (Mono IND) · Up to ₹32,000 (Norway IMP) · Visitor chairs also available'
     },
     officechairs: {
@@ -295,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Style meets performance',
       img: 'https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&w=900&q=80',
       desc: 'Mid-back and high-back office chairs that blend ergonomics with distinctive design. Suitable for manager cabins, meeting rooms and premium open-plan offices. Each model available in multiple colour and back options.',
-      products: ['Aviator','Avenger','Jacob','Alaska','Boom','Crecent','Alligator','Inox','Passion','Zorro','Panther','Mustang','Banf','Oban','Coral','Apex','Nova','Fusion','Eclipse'],
+      products: ['Aviator', 'Avenger', 'Jacob', 'Alaska', 'Boom', 'Crecent', 'Alligator', 'Inox', 'Passion', 'Zorro', 'Panther', 'Mustang', 'Banf', 'Oban', 'Coral', 'Apex', 'Nova', 'Fusion', 'Eclipse'],
       meta: 'High Back · Medium Back · Multiple colour variants'
     },
     lounge: {
@@ -303,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Hospitality & Premium Interiors',
       img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80',
       desc: 'A curated range of single-seat lounge chairs for hotel lobbies, corporate reception areas, premium residences and waiting lounges. Available with footrests and in a wide variety of upholstery options.',
-      products: ['Belgium','Capitol','Austria','Fiji','Bulgaria','Vivienne','Maxx','Roogle','Greece','Epitome','Bern','Sasaski','Enigma','Antartica','Brussels','Bavuma','Bonanza','Bugatti','Sierra','Lucerne','Romania','Milos','Ferrara','Sorrento','Burano','Carnival','London','Jamaica','Prius','Athens','Edinburg','Amalfi','Lexus','Milano','Swing','Gemini','Capri','Rome','Caviana','Lawson','Samson','Tucson','Siam','Barbados','Kiwis','Prince','Paris','Santosa','Sumo','Knoll','Abira','Alex','Star','Andros','Boston','Swan','Sofia','Stefano','Toledo','Dayton','Luv'],
+      products: ['Belgium', 'Capitol', 'Austria', 'Fiji', 'Bulgaria', 'Vivienne', 'Maxx', 'Roogle', 'Greece', 'Epitome', 'Bern', 'Sasaski', 'Enigma', 'Antartica', 'Brussels', 'Bavuma', 'Bonanza', 'Bugatti', 'Sierra', 'Lucerne', 'Romania', 'Milos', 'Ferrara', 'Sorrento', 'Burano', 'Carnival', 'London', 'Jamaica', 'Prius', 'Athens', 'Edinburg', 'Amalfi', 'Lexus', 'Milano', 'Swing', 'Gemini', 'Capri', 'Rome', 'Caviana', 'Lawson', 'Samson', 'Tucson', 'Siam', 'Barbados', 'Kiwis', 'Prince', 'Paris', 'Santosa', 'Sumo', 'Knoll', 'Abira', 'Alex', 'Star', 'Andros', 'Boston', 'Swan', 'Sofia', 'Stefano', 'Toledo', 'Dayton', 'Luv'],
       meta: 'From ₹9,800 (Swan) · Up to ₹84,000 (Lazy Boy Set) · Footrest versions available'
     },
     sofa: {
@@ -311,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: '1-2-3 Seater in Premium Fabric',
       img: 'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=80',
       desc: 'A comprehensive collection of single, double and triple-seater sofas for residences, hospitality suites, corporate lounges and showrooms. All available in a range of fabric options with per-metre fabric pricing included.',
-      products: ['Nova','Arcus','Canvas','Vegas','Lopez','Flame','Zurich','New Vogue','Chester','Heritage','Imperial','Glamour','Fortune (IMP)','Liberty','Tokyo','Mapple','Zara','Oxy','Spencer (IMP)','June','Dream','Meridian','California','Saphire','Curve','Tiara','Florance','Rapid','Corbusier','Barcelona','Kitkat','Havoc','Futon','Veronica','Crystal','Benz','Nero','Aero'],
+      products: ['Nova', 'Arcus', 'Canvas', 'Vegas', 'Lopez', 'Flame', 'Zurich', 'New Vogue', 'Chester', 'Heritage', 'Imperial', 'Glamour', 'Fortune (IMP)', 'Liberty', 'Tokyo', 'Mapple', 'Zara', 'Oxy', 'Spencer (IMP)', 'June', 'Dream', 'Meridian', 'California', 'Saphire', 'Curve', 'Tiara', 'Florance', 'Rapid', 'Corbusier', 'Barcelona', 'Kitkat', 'Havoc', 'Futon', 'Veronica', 'Crystal', 'Benz', 'Nero', 'Aero'],
       meta: '1-Seater from ₹18,000 · 3-Seater up to ₹1,02,000 · Fabric @ ₹200–600/mtr'
     },
     hotel: {
@@ -319,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Fit My Hotel · Complete Hospitality Solutions',
       img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80',
       desc: 'A premium range of bedroom furniture designed specifically for boutique hotels and luxury hospitality. From illuminated floating beds and elegant nightstands to workstations, vanity desks and accent seating.',
-      products: ['Lumino Bed Suite (FMH-S-03)','Aura Float Bed (FMH-B-01)','Lume Haven (FMH-B-02)','Lume Horizon (FMH-B-03)','Nexus Suite (FMH-S-01)','Linear Atelier (FMH-S-02)','Eris Chair (FMH-C-01)','Vira Round Table (FMH-T-01)','Kora Round Table (FMH-T-02)','Vesper Accent Table (FMH-T-03)','Kova Accent Table (FMH-T-04)','Aris Round Table (FMH-T-05)','Quadra (FMH-T-06)','Aurea (FMH-T-07)','Modus Nightstand (FMH-T-08)','The Orb (FMH-T-09)','Aura Mini-Bar (FMH-T-10)'],
+      products: ['Lumino Bed Suite (FMH-S-03)', 'Aura Float Bed (FMH-B-01)', 'Lume Haven (FMH-B-02)', 'Lume Horizon (FMH-B-03)', 'Nexus Suite (FMH-S-01)', 'Linear Atelier (FMH-S-02)', 'Eris Chair (FMH-C-01)', 'Vira Round Table (FMH-T-01)', 'Kora Round Table (FMH-T-02)', 'Vesper Accent Table (FMH-T-03)', 'Kova Accent Table (FMH-T-04)', 'Aris Round Table (FMH-T-05)', 'Quadra (FMH-T-06)', 'Aurea (FMH-T-07)', 'Modus Nightstand (FMH-T-08)', 'The Orb (FMH-T-09)', 'Aura Mini-Bar (FMH-T-10)'],
       meta: 'Custom hospitality solutions · Manufacturing at Dehradun · Pan-India delivery'
     },
     dining: {
@@ -327,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'W.E.F. 1st Jan 2026',
       img: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=80',
       desc: 'An extensive range of premium dining chairs for residences, restaurants, hotel dining rooms and banquet halls. Each design brings a distinct character — from classic wood-frame silhouettes to modern metal legs.',
-      products: ['Snow','Cherry','Lara','Grace','Skyros','Geneva','Aries','Dune (Wood & Metal)','Luna Metal','Sierra','Amigo','Coach','Tisca','Alto','Berry','Dior','Spice','Giona','Bliss','Slavia','Pablo','Nectar','Arco','Phoenix','Casper','Virtus','Ash','Ciana','Linus','Alina','Dalos','Picasso','Yoko','Ascona','Oracle','Zeta','Aura','Olive Rev','Olive Fixed','Jimmy','Corby','Vero','Softy','Iris (IND)','Carange','Zenith','Rini','Vento','Melisa','Meraki','Cairo','Root','Chris','Cowboy','Tango','Charlie','Blake'],
+      products: ['Snow', 'Cherry', 'Lara', 'Grace', 'Skyros', 'Geneva', 'Aries', 'Dune (Wood & Metal)', 'Luna Metal', 'Sierra', 'Amigo', 'Coach', 'Tisca', 'Alto', 'Berry', 'Dior', 'Spice', 'Giona', 'Bliss', 'Slavia', 'Pablo', 'Nectar', 'Arco', 'Phoenix', 'Casper', 'Virtus', 'Ash', 'Ciana', 'Linus', 'Alina', 'Dalos', 'Picasso', 'Yoko', 'Ascona', 'Oracle', 'Zeta', 'Aura', 'Olive Rev', 'Olive Fixed', 'Jimmy', 'Corby', 'Vero', 'Softy', 'Iris (IND)', 'Carange', 'Zenith', 'Rini', 'Vento', 'Melisa', 'Meraki', 'Cairo', 'Root', 'Chris', 'Cowboy', 'Tango', 'Charlie', 'Blake'],
       meta: 'From ₹5,800 (Softy) · Up to ₹32,000 (Snow) · All prices per unit ex-GST'
     },
     cafe: {
@@ -335,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'W.E.F. 15th Dec 2025',
       img: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80',
       desc: 'Stylish and versatile café chairs for restaurants, bistros, cafes and food courts. A range of PP, cushioned and metal-base designs in multiple colourways including Gold, Woody and Metal finishes.',
-      products: ['Lisbon Cush Woody','Lisbon PP','Toxy Gold','Toxy Metal','Melody PP BLK Cush','Melody PP WHT Cush','Texla','Delsey (IND)','Toxy Woody','Vibe','Cane Arms','Jerry','Stripe','Swing','Bistro w/o Arms','Bistro','Sterling','Cane w/o Arms','Sweden (PP)','Bonny Gold','Fin','Zuri','Yuki','Sweden DLX (Cush)','Sweden CH','Bonny','Furry'],
+      products: ['Lisbon Cush Woody', 'Lisbon PP', 'Toxy Gold', 'Toxy Metal', 'Melody PP BLK Cush', 'Melody PP WHT Cush', 'Texla', 'Delsey (IND)', 'Toxy Woody', 'Vibe', 'Cane Arms', 'Jerry', 'Stripe', 'Swing', 'Bistro w/o Arms', 'Bistro', 'Sterling', 'Cane w/o Arms', 'Sweden (PP)', 'Bonny Gold', 'Fin', 'Zuri', 'Yuki', 'Sweden DLX (Cush)', 'Sweden CH', 'Bonny', 'Furry'],
       meta: 'From ₹2,400 (Zuri/Yuki) · Up to ₹8,500 (Bonny Gold/Fin) · Café tables also available'
     },
     cafeteriaseries: {
@@ -343,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Design Patent Certified',
       img: 'https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=80',
       desc: 'Patent-protected institutional and corporate cafeteria chairs in PP and metal variants. Multiple colour options, stackable designs, and bar stool versions available. Includes a full range of matching cafeteria tables in stainless steel, MS powder coated, and metal frame with wood finish.',
-      products: ['Vision','Cube','Hexa','Breach','UNO','UNO XR','Bravo','Bravo XR','Tulip','Tulip Metal','Classic Alpha','Classic Gamma','Classic Metal','Classic Beta','Classic Zeta','Classic Smart','Ikon','Ikon Smart','Ikon Metal','Iris','Iris Smart','Delta','Delta Smart','Delta Platinum','Neon','Leo','Leo Smart','Leo Platinum','Virgo','Wave','Wave Smart','Dutch','Aqua Metal','Aqua Glow','Aqua Smart','Maxx Bar Stool I/II','Maxx Shell','Maxx Revolving','Turret','Cozy','Brew','Jewel','Fusion','Fusion Smart','Fusion Metal','Mirage Flex'],
+      products: ['Vision', 'Cube', 'Hexa', 'Breach', 'UNO', 'UNO XR', 'Bravo', 'Bravo XR', 'Tulip', 'Tulip Metal', 'Classic Alpha', 'Classic Gamma', 'Classic Metal', 'Classic Beta', 'Classic Zeta', 'Classic Smart', 'Ikon', 'Ikon Smart', 'Ikon Metal', 'Iris', 'Iris Smart', 'Delta', 'Delta Smart', 'Delta Platinum', 'Neon', 'Leo', 'Leo Smart', 'Leo Platinum', 'Virgo', 'Wave', 'Wave Smart', 'Dutch', 'Aqua Metal', 'Aqua Glow', 'Aqua Smart', 'Maxx Bar Stool I/II', 'Maxx Shell', 'Maxx Revolving', 'Turret', 'Cozy', 'Brew', 'Jewel', 'Fusion', 'Fusion Smart', 'Fusion Metal', 'Mirage Flex'],
       meta: 'Multiple colours · Design Patent Nos. 304920–357692 · Cafeteria tables QT-02 to QT-39'
     },
     recliner: {
@@ -351,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Fine Leather · Motor Reclining',
       img: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=900&q=80',
       desc: 'Premium fine leather recliners from manual to fully motorised. Our Marbelo features a double motor with massager and heating pad. Available in multiple colour options with rocking, swivel and footrest configurations.',
-      products: ['River (Single Motor)','Stone (Double Motor)','Arbor (Double Motor)','Ancora (Rotating Footrest)','Marbelo (Double Motor + Massager + Heating)','Neroli (Manual + Swivel + Rocking)','Creta (Manual)','Marcus (Double Motor)','London (Rocking + Footrest)','Spencer (Single Motor)','Phantom (Electric Motorized)'],
+      products: ['River (Single Motor)', 'Stone (Double Motor)', 'Arbor (Double Motor)', 'Ancora (Rotating Footrest)', 'Marbelo (Double Motor + Massager + Heating)', 'Neroli (Manual + Swivel + Rocking)', 'Creta (Manual)', 'Marcus (Double Motor)', 'London (Rocking + Footrest)', 'Spencer (Single Motor)', 'Phantom (Electric Motorized)'],
       meta: 'From ₹38,500 (Neroli) · Up to ₹1,20,000 (Marbelo) · Fine leather upholstery'
     },
     tables: {
@@ -359,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'FBI Table Catalogue',
       img: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=900&q=80',
       desc: 'A comprehensive range of executive desks, conference tables, workstations, study tables, reception tables and mini discussion tables. Available in multiple sizes (A, B, C variants) from 60" to 84" width.',
-      products: ['Elegance','Grace','Elite','Glamour','Vector','Alpha','Gamma','Vega','Edge','Inspire','Style','Wave','Art','Multipurpose Desk','Workmate','Corner Mate','Meet 1–20','Flare','Lux','Return','Vogue','Overlap','More','Charm','Eco','Mini Discussion Tables'],
+      products: ['Elegance', 'Grace', 'Elite', 'Glamour', 'Vector', 'Alpha', 'Gamma', 'Vega', 'Edge', 'Inspire', 'Style', 'Wave', 'Art', 'Multipurpose Desk', 'Workmate', 'Corner Mate', 'Meet 1–20', 'Flare', 'Lux', 'Return', 'Vogue', 'Overlap', 'More', 'Charm', 'Eco', 'Mini Discussion Tables'],
       meta: 'Widths 60" to 84" · Computer Lab · Conference Rooms · Luxury Office fitout'
     },
     highcounter: {
@@ -367,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Bars · Reception · Bistros',
       img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80',
       desc: 'Bar stools and high-counter chairs for hotel bars, café counters, reception desks and bistros. A range of styles from classic wooden stools to modern acrylic and metal designs.',
-      products: ['Astoria','Vice','Fanny','Click','Pulse Wood','Danny','Rhodes','Ricky','Skyros HC','Bolzano','Woody','Pedro','Tanriff','Rocky','Erica','Eagle','Rimini (Acrylic)','Rimini (PP)','Tobago','Melody HC','Opava','Santorini','Florida','Dale','Trento','Bistro HC','Tuxedo (HC)','Derby','Dove','Duke','Sweden HC','Finch','Joss','Rooney','Digi'],
+      products: ['Astoria', 'Vice', 'Fanny', 'Click', 'Pulse Wood', 'Danny', 'Rhodes', 'Ricky', 'Skyros HC', 'Bolzano', 'Woody', 'Pedro', 'Tanriff', 'Rocky', 'Erica', 'Eagle', 'Rimini (Acrylic)', 'Rimini (PP)', 'Tobago', 'Melody HC', 'Opava', 'Santorini', 'Florida', 'Dale', 'Trento', 'Bistro HC', 'Tuxedo (HC)', 'Derby', 'Dove', 'Duke', 'Sweden HC', 'Finch', 'Joss', 'Rooney', 'Digi'],
       meta: 'From ₹4,800 (Click) · Up to ₹18,000 (Ricky) · W.E.F. 1st July 2025'
     },
     tablestand: {
@@ -375,27 +426,27 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'Tables & Stands · Console Tables',
       img: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80',
       desc: 'An extraordinary selection of artisan centre tables, side tables, café and bar tables, console tables, and table frames. Includes height-adjustable and folding options. Also features the premium Lifting Desk with single or double motor.',
-      products: ['The Leaf (1920×390)','Mini Leaf','XM 018','BN-40','Centre Tables (CJ,YB,SC,V,T series)','Side Tables (SL,CJ,B,GT series)','Café Tables (SD,Z,T,All Season,Milano Glass)','Bar Tables','Console Tables (ST series)','Table Frames (Z,JD,E,BL series)','Lifting Desk (Single/Double Motor/Premium)'],
+      products: ['The Leaf (1920×390)', 'Mini Leaf', 'XM 018', 'BN-40', 'Centre Tables (CJ,YB,SC,V,T series)', 'Side Tables (SL,CJ,B,GT series)', 'Café Tables (SD,Z,T,All Season,Milano Glass)', 'Bar Tables', 'Console Tables (ST series)', 'Table Frames (Z,JD,E,BL series)', 'Lifting Desk (Single/Double Motor/Premium)'],
       meta: 'Café tables from ₹9,000 · The Leaf @ ₹1,10,000 · Lifting Desk ₹19,000–₹38,000'
     }
   };
 
   /* ── MODAL LOGIC (EXACTLY CENTERED) ───────────── */
-  const dialog     = document.getElementById('cat-modal');
+  const dialog = document.getElementById('cat-modal');
   const modalClose = document.getElementById('modal-close-btn');
 
-  function openModal (key) {
+  function openModal(key) {
     const d = modalData[key];
     if (!d || !dialog) return;
-    document.getElementById('modal-eyebrow').textContent  = d.eyebrow;
-    document.getElementById('modal-heading').textContent  = d.title;
-    document.getElementById('modal-desc').textContent     = d.desc;
-    document.getElementById('modal-meta').textContent     = d.meta;
+    document.getElementById('modal-eyebrow').textContent = d.eyebrow;
+    document.getElementById('modal-heading').textContent = d.title;
+    document.getElementById('modal-desc').textContent = d.desc;
+    document.getElementById('modal-meta').textContent = d.meta;
     const img = document.getElementById('modal-img');
     if (img) { img.src = d.img; img.alt = d.title; }
     const prods = document.getElementById('modal-products');
     if (prods) prods.innerHTML = d.products.slice(0, 20).map(p => `<span>${p}</span>`).join('');
-    
+
     dialog.showModal();
     document.body.style.overflow = 'hidden';
   }
