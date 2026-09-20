@@ -69,8 +69,8 @@ body {
   background: var(--cream);
   color: var(--text-primary-light);
   font-family: 'DM Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.65;
   letter-spacing: -0.015em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -88,6 +88,25 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; }
 ul { list-style: none; }
 input, textarea, select { font: inherit; }
+
+/* ── GLOBAL TEXT SIZE OVERRIDES (READABILITY & VISIBILITY) ──── */
+p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+/* Override Tailwind text-xs (12px→14.5px) and text-sm (14px→15.5px) for body/paragraph content */
+.text-xs:not(.eyebrow):not([class*="tracking-widest"]):not(.shop-card-badge):not(.franchise-badge) {
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+}
+.text-sm {
+  font-size: 15.5px !important;
+  line-height: 1.65 !important;
+}
+/* Tailwind text-\[11px\] & text-\[12px\] override */
+.text-\[11px\], .text-\[10px\], .text-\[12px\] {
+  font-size: 13.5px !important;
+}
 
 /* ── PAGE TRANSITION ANIMATION CURTAIN ────────── */
 .page-transition-curtain {
@@ -545,7 +564,7 @@ input, textarea, select { font: inherit; }
   font: 400 36px/1 var(--serif); color: #000000; margin-bottom: 12px;
 }
 .timeline-card h4 { font: 500 18px var(--sans); margin-bottom: 8px; }
-.timeline-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.timeline-card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
 
 /* ═══════════════════════════════════════════════════
    CATEGORIES CATALOG & FILTER BAR (CATEGORIES PAGE)
@@ -627,7 +646,7 @@ input, textarea, select { font: inherit; }
   font: 400 clamp(24px,2.6vw,38px)/.95 var(--serif);
   letter-spacing: -0.03em; margin-bottom: 8px;
 }
-.col-card-info p { font-size: 13px; opacity: 0.85; margin-bottom: 16px; letter-spacing: -0.01em; }
+.col-card-info p { font-size: 15px; opacity: 0.85; margin-bottom: 16px; letter-spacing: -0.01em; }
 .col-cta {
   display: inline-block; font: 500 12px var(--sans); letter-spacing: -0.01em;
   text-transform: none; border: 1px solid rgba(255,255,255,.45); border-radius: var(--r-pill);
@@ -670,7 +689,7 @@ input, textarea, select { font: inherit; }
 }
 .cat-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
 .cat-body h3 { font: 400 22px/1.1 var(--serif); letter-spacing: -0.02em; }
-.cat-body > p { font-size: 13px; color: var(--muted); line-height: 1.6; letter-spacing: -0.01em; }
+.cat-body > p { font-size: 15px; color: var(--muted); line-height: 1.65; letter-spacing: -0.01em; }
 .cat-tags {
   display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
 }
@@ -721,7 +740,7 @@ input, textarea, select { font: inherit; }
   text-transform: none; color: var(--text-secondary-dark); margin-bottom: 10px;
 }
 .spotlight-info h4 { font: 400 20px/1.1 var(--serif); letter-spacing: -0.02em; margin-bottom: 10px; }
-.spotlight-info p { font-size: 13px; color: var(--text-secondary-dark); line-height: 1.6; margin-bottom: 16px; letter-spacing: -0.01em; }
+.spotlight-info p { font-size: 15px; color: var(--text-secondary-dark); line-height: 1.65; margin-bottom: 16px; letter-spacing: -0.01em; }
 .spotlight-price {
   font: 600 16px var(--sans); color: #ffffff; margin-bottom: 16px; letter-spacing: -0.01em;
 }
@@ -775,7 +794,7 @@ input, textarea, select { font: inherit; }
 .space-info { padding: 28px; }
 .space-info span { font: 500 12px var(--sans); letter-spacing: -0.01em; text-transform: none; color: var(--text-secondary-light); }
 .space-info h3 { font: 400 24px/1.1 var(--serif); letter-spacing: -0.02em; margin: 8px 0; }
-.space-info p { font-size: 13px; color: var(--muted); line-height: 1.65; letter-spacing: -0.01em; }
+.space-info p { font-size: 15px; color: var(--muted); line-height: 1.65; letter-spacing: -0.01em; }
 
 /* ═══════════════════════════════════════════════════
    PROCESS
@@ -800,7 +819,7 @@ input, textarea, select { font: inherit; }
   color: var(--text-secondary-light); opacity: 0.35; margin-bottom: 20px;
 }
 .step h4 { font: 400 20px/1.2 var(--serif); margin-bottom: 12px; }
-.step p { font-size: 13px; color: var(--muted); line-height: 1.7; letter-spacing: -0.01em; }
+.step p { font-size: 15px; color: var(--muted); line-height: 1.7; letter-spacing: -0.01em; }
 
 /* ═══════════════════════════════════════════════════
    FAQ
@@ -834,7 +853,7 @@ input, textarea, select { font: inherit; }
   padding: 0;
 }
 .faq-a.open { max-height: 300px; padding-bottom: 24px; }
-.faq-a p { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 780px; letter-spacing: -0.01em; }
+.faq-a p { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 780px; letter-spacing: -0.01em; }
 
 /* ═══════════════════════════════════════════════════
    CONTACT
@@ -972,21 +991,21 @@ input, textarea, select { font: inherit; }
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }
 .footer-card-bio {
-  font-size: 13px; color: var(--text-secondary-dark); line-height: 1.65; max-width: 320px; letter-spacing: -0.01em;
+  font-size: 14px; color: var(--text-secondary-dark); line-height: 1.65; max-width: 320px; letter-spacing: -0.01em;
 }
 .footer-col { display: flex; flex-direction: column; gap: 12px; }
 .footer-col-title {
   font: 500 14px var(--sans); letter-spacing: -0.01em; color: #ffffff; margin-bottom: 6px;
 }
 .footer-col a {
-  font-size: 13px; color: var(--text-secondary-dark); transition: color var(--transition); letter-spacing: -0.01em;
+  font-size: 14px; color: var(--text-secondary-dark); transition: color var(--transition); letter-spacing: -0.01em;
 }
 .footer-col a:hover { color: #ffffff; }
 
 .footer-card-bottom {
   display: flex; justify-content: space-between; align-items: center;
   padding-top: 32px; gap: 20px; flex-wrap: wrap;
-  font: 400 13px var(--sans); color: var(--text-secondary-dark); letter-spacing: -0.01em;
+  font: 400 14px var(--sans); color: var(--text-secondary-dark); letter-spacing: -0.01em;
 }
 .footer-social-links {
   display: flex; align-items: center; gap: 16px;
@@ -999,6 +1018,114 @@ input, textarea, select { font: inherit; }
   font-size: 13px;
 }
 .footer-social-links a:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
+
+/* ═══════════════════════════════════════════════════
+   FOOTER FRANCHISE LOCATIONS STRIP
+═══════════════════════════════════════════════════ */
+.footer-franchise-strip {
+  padding: 32px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 32px;
+}
+.footer-franchise-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.franchise-label {
+  font: 500 11px var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+}
+.footer-franchise-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
+}
+.footer-franchise-locations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.franchise-location-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.franchise-location-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.franchise-name {
+  font: 600 16px var(--sans);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+.franchise-badge {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.55);
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 4px;
+}
+.franchise-address {
+  font-size: 12.5px;
+  color: var(--text-secondary-dark);
+  line-height: 1.55;
+  margin: 0;
+}
+.franchise-landmark {
+  color: rgba(255, 255, 255, 0.35);
+  font-style: italic;
+}
+.franchise-phones {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+.franchise-phone {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.franchise-phone::before {
+  content: '✆';
+  font-size: 11px;
+  opacity: 0.6;
+}
+.franchise-phone:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .footer-franchise-locations {
+    grid-template-columns: 1fr;
+  }
+  .franchise-phones {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
 
 /* ═══════════════════════════════════════════════════
    CATEGORY MODAL — CENTERED IN PAGE
@@ -1447,12 +1574,12 @@ dialog#cat-modal::backdrop {
   .hero h1 { font-size: clamp(32px, 9vw, 48px) !important; line-height: 1.08 !important; }
   .subpage-hero h1 { font-size: clamp(26px, 7.5vw, 36px) !important; line-height: 1.15 !important; }
   .subpage-hero { padding: 120px 20px 60px !important; }
-  .subpage-hero-sub { font-size: 13.5px !important; line-height: 1.5 !important; }
+  .subpage-hero-sub { font-size: 15px !important; line-height: 1.55 !important; }
   .section-top h2, h2 { font-size: clamp(22px, 5.5vw, 30px) !important; line-height: 1.2 !important; }
   h3 { font-size: clamp(16px, 4.5vw, 20px) !important; }
   h4 { font-size: 15px !important; }
-  p, .sub-lead { font-size: 13.5px !important; line-height: 1.6 !important; }
-  .eyebrow { font-size: 10.5px !important; letter-spacing: 0.12em !important; }
+  p, .sub-lead { font-size: 15px !important; line-height: 1.6 !important; }
+  .eyebrow { font-size: 11px !important; letter-spacing: 0.12em !important; }
 
   /* ═══════════════════════════════════════════════════
      2-COLUMN CARD GRIDS FOR MOBILE VIEWPORTS
@@ -1470,12 +1597,12 @@ dialog#cat-modal::backdrop {
     border-radius: 16px !important;
   }
   .cat-card h3, .col-card h3, .spotlight-card h3, .timeline-card h4 {
-    font-size: 14px !important;
-    margin-bottom: 2px !important;
+    font-size: 15px !important;
+    margin-bottom: 4px !important;
   }
   .cat-card p, .col-card p, .spotlight-card p, .timeline-card p {
-    font-size: 11.5px !important;
-    line-height: 1.35 !important;
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
   }
 
   /* ═══════════════════════════════════════════════════
