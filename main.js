@@ -327,9 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     ergo: {
       title: 'Ergo Office Chairs',
-      eyebrow: 'FBI Ergo Series · 24-month warranty',
+      eyebrow: 'Ergo Series · 24-month warranty',
       img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=900&q=80',
-      desc: 'FBI Ergo Series (New Collection 2024) — designed from the ground up for all-day comfort. Features adjustable seat height, lumbar support, adjustable armrests, swivel base, breathable mesh and PU waterfall seat cushions for extended seating.',
+      desc: 'Ergo Series (New Collection 2024) — designed from the ground up for all-day comfort. Features adjustable seat height, lumbar support, adjustable armrests, swivel base, breathable mesh and PU waterfall seat cushions for extended seating.',
       products: ['Nova', 'Ignis', 'Pinnacle', 'Heaven', 'Ventura', 'Jupiter', 'Pulse', 'Vibe', 'Gallop', 'Orbit', 'Nex', 'Vega', 'Cooper', 'Levo', 'Pisces', 'Czar'],
       meta: 'Adjustable height · Lumbar & headrest · 24-month warranty support'
     },
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     tables: {
       title: 'Executive Desks & Conference Tables',
-      eyebrow: 'FBI Table Catalogue',
+      eyebrow: 'Executive Table Catalogue',
       img: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=900&q=80',
       desc: 'A comprehensive range of executive desks, conference tables, workstations, study tables, reception tables and mini discussion tables. Available in multiple sizes (A, B, C variants) from 60" to 84" width.',
       products: ['Elegance', 'Grace', 'Elite', 'Glamour', 'Vector', 'Alpha', 'Gamma', 'Vega', 'Edge', 'Inspire', 'Style', 'Wave', 'Art', 'Multipurpose Desk', 'Workmate', 'Corner Mate', 'Meet 1–20', 'Flare', 'Lux', 'Return', 'Vogue', 'Overlap', 'More', 'Charm', 'Eco', 'Mini Discussion Tables'],

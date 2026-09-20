@@ -41,7 +41,7 @@ const CATEGORIES = [
   {
     slug: 'ergo-office-chairs',
     name: 'Ergo Office Chairs',
-    desc: 'FBI Ergo Series — 24-month warranty ergonomic office chairs with breathable Korean mesh and adjustable lumbar support.',
+    desc: 'Ergo Series — 24-month warranty ergonomic office chairs with breathable Korean mesh and adjustable lumbar support.',
     img: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=1000&q=80',
     price: 'Price Available on Enquiry'
   },
@@ -155,7 +155,7 @@ CATEGORIES.forEach(cat => {
     generatedUrls.push(pageUrl);
 
     const title = `${cat.name} in ${city.name} | H&H Concepts Luxury Furniture`;
-    const metaDesc = `Looking for ${cat.name} in ${city.name}, ${city.state}? H&H Concepts provides luxury ${cat.name.toLowerCase()} for commercial offices, boutique hotels & luxury homes with 24-month warranty. Sourced & manufactured by FBI Industries.`;
+    const metaDesc = `Looking for ${cat.name} in ${city.name}, ${city.state}? H&H Concepts provides luxury ${cat.name.toLowerCase()} for commercial offices, boutique hotels & luxury homes with 24-month warranty. Sourced & manufactured at our Dehradun facility.`;
     const canonical = `${DOMAIN}/locations/${pageSlug}`;
 
     const jsonLd = {
@@ -169,7 +169,7 @@ CATEGORIES.forEach(cat => {
           "logo": `${DOMAIN}/assets/logo-full-white.png`,
           "image": cat.img,
           "description": metaDesc,
-          "telephone": "+91-9412056952",
+          "telephone": "+91-9958878124",
           "email": "hello@hhconcepts.in",
           "address": {
             "@type": "PostalAddress",
